@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. SMOOTH SCROLL REVEAL (Intersection Observer)
+    // 1. SMOOTH SCROLL REVEAL 
     const revealElements = document.querySelectorAll('.reveal');
     const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -30px 0px" };
 
@@ -14,28 +14,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-    // 2. FAQ DATA (Clean & Professional)
+    // 2. NEW: INTERACTIVE TABS LOGIC
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and contents
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            // Show corresponding content
+            const targetId = button.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+
+    // 3. FULL FAQ DATA 
     const faqData = [
-        {
-            q: "Is the NIOS mark sheet valid for government jobs and visas?",
-            a: "Yes, NIOS is established by the Ministry of Education, Government of India. It is 100% valid for government jobs, private sector jobs, passports, and international visas."
-        },
-        {
-            q: "Can I appear for NEET or JEE after passing from NIOS?",
-            a: "Absolutely! NIOS students are fully eligible to appear for NEET, JEE, and all other national-level competitive entrance examinations."
-        },
-        {
-            q: "What is TOC (Transfer of Credit)?",
-            a: "If you failed in GSEB or CBSE, you can directly transfer the marks of up to two subjects you passed into your NIOS mark sheet. You only have to give exams for the remaining subjects."
-        },
-        {
-            q: "Do I need to attend classes every day?",
-            a: "No. NIOS is designed for flexible learning. You study from home without the burden of daily school attendance."
-        },
-        {
-            q: "Where will my exam center be?",
-            a: "Your exam center will typically be allotted at a Kendriya Vidyalaya or a government-recognized school close to your residential address."
-        }
+        { q: "Is the NIOS mark sheet valid for government jobs?", a: "Yes, NIOS is established by the Ministry of Education, Government of India. The mark sheet is 100% valid for all government and private sector jobs." },
+        { q: "Can I appear for NEET or JEE after passing from NIOS?", a: "Absolutely! NIOS students are fully eligible to appear for NEET, JEE, and all other national-level entrance examinations." },
+        { q: "What is TOC and how does it benefit me?", a: "TOC stands for Transfer of Credit. If you have failed in GSEB or CBSE, you can directly transfer the marks of up to two passed subjects into your NIOS mark sheet." },
+        { q: "How many times a year are exams conducted?", a: "Major public exams are held twice a year (April-May and October-November). Additionally, On-Demand Exams (ODE) are available almost every month." },
+        { q: "Do I need to attend classes every day?", a: "No, we provide 'Flexible Classes', allowing you to plan your studies from home according to your convenience without daily attendance." },
+        { q: "If I have never attended 10th grade, can I get direct admission?", a: "Yes, if you are above 14 years of age and possess valid ID proof, you are eligible for direct admission to the 10th standard." },
+        { q: "Where will my exam center be located?", a: "Your exam center will be allotted at a Kendriya Vidyalaya or government-recognized school close to your residential address." },
+        { q: "Can I use the NIOS certificate for a Passport or Visa?", a: "Yes, the NIOS certificate is widely recognized and accepted globally by passport offices and foreign embassies." },
+        { q: "Is the syllabus as tough as regular boards?", a: "No, the NIOS syllabus is designed to be highly practical, simplified, and student-friendly." },
+        { q: "What documents are required for admission?", a: "You will need your Aadhar Card, previous school's Leaving Certificate (LC), failed mark sheet (if applicable), and a passport-size photograph." }
     ];
 
     // Render FAQs
@@ -59,25 +68,20 @@ document.addEventListener('DOMContentLoaded', () => {
             const body = header.nextElementSibling;
             const isActive = header.classList.contains('active');
 
-            // Close all
             accordionHeaders.forEach(btn => {
                 btn.classList.remove('active');
                 btn.nextElementSibling.style.maxHeight = null;
             });
 
-            // Open clicked
             if (!isActive) {
                 header.classList.add('active');
                 body.style.maxHeight = body.scrollHeight + "px";
             }
         });
     });
-
-    // Open first FAQ by default for better UX
     if (accordionHeaders.length > 0) accordionHeaders[0].click();
 
-
-    // 3. WHATSAPP LEAD FORM SUBMISSION
+    // 4. WHATSAPP LEAD FORM SUBMISSION
     const leadForm = document.getElementById('leadForm');
     leadForm.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -90,22 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
         message += `\nI am requesting a free consultation regarding NIOS admission.`;
 
         const encodedMessage = encodeURIComponent(message);
-        const targetPhone = "919876543210"; // Replace with your actual number
+        const targetPhone = "919876543210";
         window.open(`https://wa.me/${targetPhone}?text=${encodedMessage}`, '_blank');
-
         leadForm.reset();
     });
 
-    // 4. MINI EVERGREEN COUNTDOWN TIMER (In Form)
-    // Always shows approx ~14 hours to create scarcity typical in funnels
+    // 5. MINI EVERGREEN COUNTDOWN TIMER
     let countDownDate = new Date().getTime() + (14 * 60 * 60 * 1000) + (45 * 60 * 1000);
-
     setInterval(function () {
         let now = new Date().getTime();
         let distance = countDownDate - now;
 
         if (distance < 0) {
-            // Reset if it hits zero
             countDownDate = new Date().getTime() + (14 * 60 * 60 * 1000);
             distance = countDownDate - now;
         }
