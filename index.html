@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NIOS Admission 2026-27 | Save Your Year</title>
-    <meta
-      name="description"
-      content="Failed your exams? Save your year! Get your 10th or 12th Govt. Approved Marksheet with edYOUcate."
-    />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800;900&display=swap"
       rel="stylesheet"
@@ -16,741 +13,1170 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                blue: "#0f172a",
+                red: "#d32f2f",
+                redHover: "#b71c1c",
+                gold: "#f59e0b",
+                green: "#10b981",
+              },
+            },
+            fontFamily: {
+              heading: ["Outfit", "sans-serif"],
+              body: ["Inter", "sans-serif"],
+            },
+            animation: {
+              marquee: "marquee 30s linear infinite",
+              ticker: "ticker 25s linear infinite",
+            },
+            keyframes: {
+              marquee: {
+                "0%": { transform: "translateX(0%)" },
+                "100%": { transform: "translateX(-50%)" },
+              },
+              ticker: {
+                "0%": { transform: "translateX(100%)" },
+                "100%": { transform: "translateX(-100%)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 90px;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Outfit", sans-serif;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* 3D Effects */
+      .preserve-3d {
+        transform-style: preserve-3d;
+      }
+      .translate-z-40 {
+        transform: translateZ(40px);
+      }
+      .translate-z-20 {
+        transform: translateZ(20px);
+      }
+
+      /* Marquee */
+      .marquee-track {
+        display: flex;
+        width: max-content;
+      }
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+
+      /* Ticker */
+      .ticker-wrap {
+        width: 100%;
+        overflow: hidden;
+        background-color: #d32f2f;
+        color: white;
+        padding: 6px 0;
+        white-space: nowrap;
+        box-sizing: border-box;
+      }
+      .ticker-text {
+        display: inline-block;
+        animation: ticker 30s linear infinite;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+      }
+    </style>
   </head>
-  <body>
-    <nav class="navbar" id="navbar">
-      <div class="nav-container">
-        <a href="#" class="nav-logo">
-          <img src="logo.png" alt="edYOUcate Logo" class="nav-logo-img" />
+  <script>
+    function showStream(streamId, colorClass) {
+      const contents = document.querySelectorAll(".stream-content");
+      const buttons = document.querySelectorAll(".stream-btn");
+
+      contents.forEach((content) => {
+        content.classList.add("hidden");
+      });
+
+      buttons.forEach((btn) => {
+        btn.classList.remove("bg-blue-500", "bg-amber-500", "bg-red-500");
+
+        btn.classList.add("bg-white/10");
+      });
+
+      document.getElementById(streamId).classList.remove("hidden");
+
+      event.target.classList.remove("bg-white/10");
+      event.target.classList.add(colorClass);
+    }
+  </script>
+  <body class="bg-white text-slate-900">
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        <a href="#" class="block w-28 md:w-32">
+          <img src="logo.png" alt="edYOUcate Logo" class="w-full h-auto" />
         </a>
 
-        <div class="nav-links" id="navLinks">
-          <a href="#about">What is NIOS?</a>
-          <a href="#features">Features</a>
-          <a href="#academics">Streams</a>
-          <a href="#contact">FAQs</a>
+        <div
+          id="navLinks"
+          class="hidden md:flex items-center gap-8 absolute md:relative top-full left-0 w-full md:w-auto bg-white md:bg-transparent shadow-lg md:shadow-none flex-col md:flex-row py-2 md:py-0 border-t md:border-none border-slate-200 transition-all"
+        >
+          <a
+            href="#about"
+            class="w-full md:w-auto text-center py-2.5 md:py-0 font-bold text-brand-blue hover:text-brand-red border-b border-slate-100 md:border-none transition-colors"
+            >What is NIOS?</a
+          >
+          <a
+            href="#features"
+            class="w-full md:w-auto text-center py-2.5 md:py-0 font-bold text-brand-blue hover:text-brand-red border-b border-slate-100 md:border-none transition-colors"
+            >Features</a
+          >
+          <a
+            href="#streams"
+            class="w-full md:w-auto text-center py-2.5 md:py-0 font-bold text-brand-blue hover:text-brand-red border-b border-slate-100 md:border-none transition-colors"
+            >Streams</a
+          >
+          <a
+            href="#contact"
+            class="w-full md:w-auto text-center py-2.5 md:py-0 font-bold text-brand-blue hover:text-brand-red transition-colors"
+            >FAQs</a
+          >
         </div>
 
-        <div class="nav-actions">
-          <a href="#admission-form" class="btn btn-primary nav-btn"
+        <div class="flex items-center gap-4">
+          <a
+            href="#admission-form"
+            class="bg-brand-red hover:bg-brand-redHover text-white px-5 py-2 rounded-full font-heading font-bold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
             >Apply Now</a
           >
-          <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <button id="mobileMenuBtn" class="md:hidden text-2xl text-brand-blue">
             <i class="fa-solid fa-bars"></i>
           </button>
         </div>
       </div>
     </nav>
 
-    <header class="funnel-hero" id="vanta-hero">
-      <div class="container text-center hero-inner">
-        <div class="badge reveal">
+    <header
+      id="vanta-hero"
+      class="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[95vh]"
+    >
+      <div
+        class="max-w-4xl w-full mx-auto relative z-10 text-center flex flex-col items-center"
+      >
+        <div
+          class="reveal inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 rounded-full text-white font-semibold text-sm mb-8"
+        >
           <i class="fa-solid fa-shield-halved"></i> MHRD & Govt. of India
           Approved
         </div>
 
-        <h1 class="hero-headline reveal">
-          Failed Your Exams? <span class="text-gradient">Don't Panic!</span
+        <h1
+          class="reveal text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg"
+        >
+          Failed Your Exams?
+          <span
+            class="bg-gradient-to-r from-brand-gold to-yellow-400 bg-clip-text text-transparent"
+            >Don't Panic!</span
           ><br />
           Don't Waste An Entire Year.
         </h1>
 
-        <h2 class="hero-subheadline reveal">
+        <h2
+          class="reveal text-base md:text-xl font-medium text-slate-100 mb-8 drop-shadow-md max-w-3xl"
+        >
           Get your fully valid 10th or 12th Govt. Approved Marksheet in just a
-          few months—without daily regular school attendance.
+          few months with edYOUcate!
         </h2>
 
-        <div class="video-container reveal">
+        <div
+          class="reveal w-full max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 mb-12 bg-black"
+        >
           <iframe
             width="100%"
             height="450"
             src="https://www.youtube.com/embed/qHtVy91UBsI?rel=0"
+            class="w-full h-56 md:h-96"
             title="YouTube video player"
             frameborder="0"
-            allow="
-              accelerometer;
-              autoplay;
-              clipboard-write;
-              encrypted-media;
-              gyroscope;
-              picture-in-picture;
-              web-share;
-            "
             allowfullscreen
-            class="hero-video-iframe"
-            referrerpolicy="strict-origin-when-cross-origin"
           ></iframe>
         </div>
 
-        <div class="hero-cta-wrapper reveal mb-hero-cta">
+        <div class="reveal w-full px-4 mb-8">
           <a
             href="#admission-form"
-            class="btn btn-primary btn-huge pulse-animation"
+            class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-brand-red hover:bg-brand-redHover text-white px-6 md:px-10 py-4 md:py-5 rounded-full font-heading font-bold text-sm md:text-xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 animate-pulse"
           >
             Yes, I Want To Save My Year! <i class="fa-solid fa-arrow-right"></i>
           </a>
-          <p class="secure-text">
-            <i class="fa-solid fa-lock"></i> 100% Secure & Confidential
-            Consultation
-          </p>
         </div>
       </div>
 
-      <div class="container trust-strip-container">
-        <div class="trust-strip shadow-lg">
-          <div class="trust-item">
-            <i class="fa-solid fa-building-columns"></i>
-            <span>MHRD Approved</span>
+      <div
+        class="w-full max-w-6xl mx-auto absolute -bottom-10 left-1/2 -translate-x-1/2 px-6 z-20 hidden lg:block"
+      >
+        <div
+          class="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 flex justify-around items-center flex-wrap gap-4"
+        >
+          <div class="flex items-center gap-3 font-bold text-slate-600">
+            <i
+              class="fa-solid fa-building-columns text-2xl text-brand-blue"
+            ></i>
+            MHRD Approved
           </div>
-          <div class="trust-item">
-            <i class="fa-solid fa-calendar-check"></i> <span>Since 1989</span>
+          <div class="flex items-center gap-3 font-bold text-slate-600">
+            <i class="fa-solid fa-calendar-check text-2xl text-brand-blue"></i>
+            Since 1989
           </div>
-          <div class="trust-item">
-            <i class="fa-solid fa-user-graduate"></i>
-            <span>NEET / JEE Valid</span>
+          <div class="flex items-center gap-3 font-bold text-slate-600">
+            <i class="fa-solid fa-user-graduate text-2xl text-brand-blue"></i>
+            100% Eligible (NEET/JEE/Visa)
           </div>
-          <div class="trust-item">
-            <i class="fa-solid fa-certificate"></i> <span>ISO Certified</span>
+          <div class="flex items-center gap-3 font-bold text-slate-600">
+            <i class="fa-solid fa-certificate text-2xl text-brand-blue"></i> ISO
+            Certified
           </div>
         </div>
       </div>
     </header>
-    <!--
-    <section class="section bg-light" id="audience">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <h2 class="section-title">Is This Program For You?</h2>
-          <p class="section-subtitle">
-            If you check any of these boxes, NIOS is your exact solution.
-          </p>
-        </div>
 
-        <div class="bento-grid reveal">
-          <div
-            class="bento-item span-2 span-row-2 bg-dark text-white p-large bento-hover"
-          >
-            <div class="bento-icon-large text-red">
-              <i class="fa-solid fa-user-xmark"></i>
-            </div>
-            <h3 class="text-white">10th or 12th Failures & Drop-outs</h3>
-            <p class="text-gray-light mt-2">
-              Whether you failed state boards or CBSE, you don't have to wait an
-              entire year. You can save your year immediately through NIOS.
-            </p>
-          </div>
-
-          <div class="bento-item bg-white bento-hover">
-            <div class="bento-icon text-gold">
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-            <h4>Score Improvement</h4>
-            <p class="text-sm text-gray">
-              Scored low? Give On-Demand exams to boost your marks.
-            </p>
-          </div>
-
-          <div class="bento-item bg-white bento-hover">
-            <div class="bento-icon text-blue">
-              <i class="fa-solid fa-stethoscope"></i>
-            </div>
-            <h4>NEET/JEE Aspirants</h4>
-            <p class="text-sm text-gray">
-              Skip daily school attendance and focus 100% on coaching.
-            </p>
-          </div>
-
-          <div class="bento-item bg-white bento-hover">
-            <div class="bento-icon text-green">
-              <i class="fa-solid fa-laptop-house"></i>
-            </div>
-            <h4>Flexible Learning</h4>
-            <p class="text-sm text-gray">
-              Study from home on your own schedule.
-            </p>
-          </div>
-
-          <div class="bento-item span-4 bg-red-light border-red bento-hover">
-            <div class="d-flex-align">
-              <div class="bento-icon text-red">
-                <i class="fa-solid fa-plane-departure"></i>
-              </div>
-              <div>
-                <h4>Study Abroad Visas</h4>
-                <p class="text-sm text-dark">
-                  Need a valid board certificate for Canada/UK? NIOS is globally
-                  accepted.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
--->
     <section
-      id="audience"
-      class="py-5"
-      style="background: var(--bg-light); padding: 80px 0"
+      id="about"
+      class="bg-white pt-24 md:pt-32 pb-20 px-6 border-b border-slate-200"
     >
-      <div class="container">
-        <div class="text-center mb-5 reveal">
-          <h2 class="section-title">
-            Is This Program <span class="text-gold">For You?</span>
-          </h2>
-          <p class="section-subtitle text-gray">
-            If you fall into any of these 8 categories, NIOS is your perfect
-            solution.
-          </p>
-        </div>
-
-        <div class="bento-grid audience-grid reveal">
-          <div class="bento-item span-2 bg-dark text-white p-large bento-hover">
-            <div class="bento-icon-large text-red">
-              <i class="fa-solid fa-user-graduate"></i>
-            </div>
-            <h3 class="text-white">10th/12th Failures & Dropouts</h3>
-            <p class="text-gray-light mt-2">
-              Failed or dropped out of GSEB or CBSE? Don't waste an entire year.
-              You can save your academic journey immediately.
-            </p>
-          </div>
-
-          <div class="bento-item bg-white bento-hover">
-            <div class="bento-icon text-gold">
-              <i class="fa-solid fa-arrow-trend-up"></i>
-            </div>
-            <h4>Score Improvement</h4>
-            <p class="text-sm text-gray">
-              Scored low in regular boards? Improve your marks with On-Demand
-              Exams.
-            </p>
-          </div>
-
-          <div class="bento-item bg-white bento-hover">
-            <div class="bento-icon text-blue">
-              <i class="fa-solid fa-microscope"></i>
-            </div>
-            <h4>NEET/JEE Aspirants</h4>
-            <p class="text-sm text-gray">
-              Focus 100% on coaching. Skip the daily regular school attendance.
-            </p>
-          </div>
-
-          <div class="bento-item bg-white bento-hover">
-            <div class="bento-icon text-green">
-              <i class="fa-solid fa-briefcase"></i>
-            </div>
-            <h4>Working Adults</h4>
-            <p class="text-sm text-gray">
-              Passed the age of study? Pass 10th/12th easily alongside your job.
-            </p>
-          </div>
-
-          <div class="bento-item span-2 bg-blue-light border-blue bento-hover">
-            <div class="d-flex-align">
-              <div class="bento-icon text-blue">
-                <i class="fa-solid fa-medal"></i>
-              </div>
-              <div>
-                <h4>Sports & Arts Students</h4>
-                <p class="text-sm text-dark">
-                  Busy with activities? Get a schedule that doesn't demand
-                  regular time.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento-item bg-white bento-hover">
-            <div class="bento-icon text-red">
-              <i class="fa-solid fa-shuffle"></i>
-            </div>
-            <h4>Subject Change</h4>
-            <p class="text-sm text-gray">
-              Want to switch streams in 12th Science? (e.g., from Maths to
-              Biology).
-            </p>
-          </div>
-
-          <div
-            class="bento-item span-2 bg-green-light border-green bento-hover"
-          >
-            <div class="d-flex-align">
-              <div class="bento-icon text-green">
-                <i class="fa-solid fa-laptop-house"></i>
-              </div>
-              <div>
-                <h4>Flexible Home Learners</h4>
-                <p class="text-sm text-dark">
-                  Want to study from the comfort of your home? Enjoy fully
-                  flexible learning.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bento-item span-2 bg-red-light border-red bento-hover">
-            <div class="d-flex-align">
-              <div class="bento-icon text-red">
-                <i class="fa-solid fa-plane-departure"></i>
-              </div>
-              <div>
-                <h4>Study Abroad Visas</h4>
-                <p class="text-sm text-dark">
-                  Need a recognized board certificate? NIOS is globally accepted
-                  for abroad study.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <div class="container reveal">
-      <section
-        class="floating-curved-container bg-dark text-white"
-        id="ideal-solution"
+      <div
+        class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center reveal"
       >
-        <div class="section-header text-center">
+        <div class="lg:col-span-3 text-center md:text-left">
           <span
-            class="pill-tag text-gold"
-            style="background: rgba(245, 158, 11, 0.1)"
-            >Tailored For You</span
+            class="inline-block bg-brand-blue text-white px-4 py-1.5 rounded-full font-bold text-sm mb-4"
+            >Official Info & Validity</span
           >
-          <h2 class="section-title text-white">
-            Who is NIOS the Ideal Solution For?
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-6">
+            What exactly is NIOS?
           </h2>
-          <p class="section-subtitle text-gray-light">
-            NIOS is specifically designed for students who don't fit into the
-            traditional regular school system.
-          </p>
-        </div>
-
-        <div class="hover-grid">
-          <div class="hover-card">
-            <div class="hover-icon text-red">
-              <i class="fa-solid fa-face-frown-open"></i>
-            </div>
-            <h4>Board Exam Failures</h4>
-            <div class="hover-content">
-              <p>
-                Failed CBSE, State Boards, or SSC? Pass quickly with NIOS and
-                get your career back on track immediately.
-              </p>
-            </div>
-          </div>
-          <div class="hover-card">
-            <div class="hover-icon text-gold">
-              <i class="fa-solid fa-person-running"></i>
-            </div>
-            <h4>School Dropouts</h4>
-            <div class="hover-content">
-              <p>
-                Left school mid-way? Complete your 10th or 12th to become
-                eligible for college admissions and government jobs.
-              </p>
-            </div>
-          </div>
-          <div class="hover-card">
-            <div class="hover-icon text-blue">
-              <i class="fa-solid fa-briefcase"></i>
-            </div>
-            <h4>Working Professionals</h4>
-            <div class="hover-content">
-              <p>
-                NIOS offers flexible timings and on-demand exams, making it the
-                perfect solution for working students.
-              </p>
-            </div>
-          </div>
-          <div class="hover-card">
-            <div class="hover-icon text-green">
-              <i class="fa-solid fa-palette"></i>
-            </div>
-            <h4>Athletes & Artists</h4>
-            <div class="hover-content">
-              <p>
-                Pursue cricket, dancing, or acting full-time. Complete your
-                boards without the pressure of regular school.
-              </p>
-            </div>
-          </div>
-          <div class="hover-card">
-            <div class="hover-icon text-gold">
-              <i class="fa-regular fa-calendar-minus"></i>
-            </div>
-            <h4>Gap Year Students</h4>
-            <div class="hover-content">
-              <p>
-                Want to resume your studies after a 1-2 year gap? NIOS is the
-                most suitable platform to catch up.
-              </p>
-            </div>
-          </div>
-          <div class="hover-card">
-            <div class="hover-icon text-red">
-              <i class="fa-solid fa-notes-medical"></i>
-            </div>
-            <h4>Medical Challenges</h4>
-            <div class="hover-content">
-              <p>
-                Unable to attend regular school due to long-term illness?
-                Flexible home-study methods make NIOS the best choice.
-              </p>
-            </div>
-          </div>
-          <div class="hover-card">
-            <div class="hover-icon text-blue">
-              <i class="fa-solid fa-brain"></i>
-            </div>
-            <h4>Overwhelmed Students</h4>
-            <div class="hover-content">
-              <p>
-                Facing anxiety, exam pressure, or bullying at school? Students
-                and parents choose NIOS for stress-free learning.
-              </p>
-            </div>
-          </div>
-          <div class="hover-card">
-            <div class="hover-icon text-green">
-              <i class="fa-solid fa-right-left"></i>
-            </div>
-            <h4>Stream Changers</h4>
-            <div class="hover-content">
-              <p>
-                Want to switch between Science, Arts, or Commerce? Select your
-                preferred subjects easily and complete your boards.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <section class="section bg-white" id="comparison">
-      <div class="container">
-        <div class="section-header text-center reveal">
-          <h2 class="section-title">Why NIOS Over Regular Boards?</h2>
-        </div>
-
-        <div class="comparison-grid reveal">
-          <div class="feature-card pain-card">
-            <div class="card-header bg-red-light">
-              <h3>
-                <i class="fa-solid fa-circle-xmark text-red"></i> Regular Repeat
-              </h3>
-            </div>
-            <ul class="custom-list red-list">
-              <li>Wait an entire year to take exams.</li>
-              <li>Mandatory daily school attendance.</li>
-              <li>Must retake all subjects, even the ones you passed.</li>
-              <li>School dictates your subject choices.</li>
-            </ul>
-          </div>
-          <div class="feature-card gain-card highlight-glow">
-            <div class="card-header bg-green-light">
-              <h3>
-                <i class="fa-solid fa-circle-check text-green"></i> NIOS Board
-              </h3>
-            </div>
-            <ul class="custom-list green-list">
-              <li>
-                <strong>Immediate Exams:</strong> Save your year completely.
-              </li>
-              <li><strong>Flexible:</strong> No daily attendance required.</li>
-              <li>
-                <strong>TOC Facility:</strong> Carry forward marks of 2 passed
-                subjects.
-              </li>
-              <li>
-                <strong>Your Choice:</strong> Pick the subjects you actually
-                want to study.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-light" id="about">
-      <div class="container">
-        <div class="nios-grid reveal">
-          <div class="nios-text">
-            <span class="pill-tag">Official Info & Validity</span>
-            <h2 class="section-title">What exactly is NIOS?</h2>
-            <p class="lead-text">
+          <div class="space-y-4 text-base md:text-lg text-slate-700">
+            <p>
               The
               <strong>National Institute of Open Schooling (NIOS)</strong> is an
               autonomous board operating under the Ministry of Education (MHRD),
               Government of India.
             </p>
+            <p
+              class="font-bold text-brand-blue border-l-4 border-brand-gold pl-4 py-1 text-left"
+            >
+              It holds the exact same validity as CBSE, ICSE, or State Boards.
+            </p>
             <p>
-              It provides a legal, flexible, and fully recognized alternative
-              for students to complete their schooling. It holds the exact same
-              validity as CBSE, ICSE, or State Boards.
+              If for any reason you could not pursue regular studies or failed
+              your exams, NIOS provides a legal, government-approved opportunity
+              to pass your 10th or 12th standard from home with flexible
+              classes.
             </p>
           </div>
-          <div class="nios-stats">
-            <div class="stat-box shadow-sm">
-              <i class="fa-solid fa-award text-gold"></i>
-              <h4>100% Equivalent</h4>
-              <p>Accepted by all Indian universities.</p>
+        </div>
+        <div class="lg:col-span-2 flex flex-col gap-6">
+          <div
+            class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-5"
+          >
+            <i class="fa-solid fa-award text-4xl text-brand-gold"></i>
+            <div>
+              <h4 class="font-bold text-xl text-slate-900">100% Equivalent</h4>
+              <p class="text-slate-600 text-sm mt-1">
+                Accepted by all Indian universities & abroad.
+              </p>
             </div>
-            <div class="stat-box shadow-sm">
-              <i class="fa-solid fa-globe text-blue"></i>
-              <h4>Global Reach</h4>
-              <p>Largest open schooling system globally.</p>
+          </div>
+          <div
+            class="bg-slate-50 border border-slate-200 rounded-2xl p-6 shadow-sm flex items-center gap-5"
+          >
+            <i class="fa-solid fa-globe text-4xl text-blue-500"></i>
+            <div>
+              <h4 class="font-bold text-xl text-slate-900">Global Reach</h4>
+              <p class="text-slate-600 text-sm mt-1">
+                Largest open schooling system in the world.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section bg-white pt-0" id="features">
-      <div class="container mt-5">
-        <div class="section-header text-center reveal">
-          <h2 class="section-title">⭐ 15 Key Features of NIOS</h2>
-          <p class="section-subtitle">
+    <section id="audience" class="bg-slate-50 py-20 px-6">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-3">
+            Is This Program <span class="text-brand-gold">For You?</span>
+          </h2>
+          <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">
+            If you fall into any of these 8 categories, NIOS is your perfect
+            solution.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 reveal"
+        >
+          <div
+            class="col-span-1 lg:col-span-2 bg-brand-blue text-white rounded-3xl p-8 hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-user-graduate text-brand-red text-4xl md:text-5xl mb-4"
+            ></i>
+            <h3 class="text-xl md:text-2xl font-bold mb-2">
+              10th/12th Failures & Dropouts
+            </h3>
+            <p class="text-slate-300 text-sm md:text-base">
+              Failed or dropped out of GSEB or CBSE? Don't waste an entire year.
+              You can save your academic journey immediately.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-3xl p-6 border border-slate-200 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col justify-start text-left"
+          >
+            <i
+              class="fa-solid fa-arrow-trend-up text-brand-gold text-3xl mb-3"
+            ></i>
+            <h4 class="text-lg font-bold mb-2 text-slate-900">
+              Score Improvement
+            </h4>
+            <p class="text-slate-500 text-sm">
+              Scored low in regular boards? Improve your marks with On-Demand
+              Exams.
+            </p>
+          </div>
+
+          <div
+            class="bg-white rounded-3xl p-6 border border-slate-200 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col justify-start text-left"
+          >
+            <i class="fa-solid fa-microscope text-blue-500 text-3xl mb-3"></i>
+            <h4 class="text-lg font-bold mb-2 text-slate-900">
+              NEET/JEE Aspirants
+            </h4>
+            <p class="text-slate-500 text-sm">
+              Focus 100% on coaching. Skip the daily regular school attendance.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-3xl p-6 border border-slate-200 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col justify-start text-left"
+          >
+            <i class="fa-solid fa-briefcase text-brand-green text-3xl mb-3"></i>
+            <h4 class="text-lg font-bold mb-2 text-slate-900">
+              Working Adults
+            </h4>
+            <p class="text-slate-500 text-sm">
+              Passed the age of study? Pass 10th/12th easily alongside your job.
+            </p>
+          </div>
+          <div
+            class="col-span-1 lg:col-span-2 bg-blue-50 border border-blue-100 rounded-3xl p-6 md:p-8 flex flex-col justify-start hover:-translate-y-2 hover:shadow-xl transition-all duration-300 min-h-[180px]"
+          >
+            <i class="fa-solid fa-medal text-blue-500 text-4xl mb-3"></i>
+            <h4 class="text-lg font-bold mb-2 text-slate-900">
+              Sports & Arts Students
+            </h4>
+            <p class="text-slate-600 text-sm">
+              Busy with activities? Get a schedule that doesn't demand regular
+              time.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-3xl p-6 border border-slate-200 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 flex flex-col justify-start text-left"
+          >
+            <i class="fa-solid fa-shuffle text-brand-red text-3xl mb-3"></i>
+            <h4 class="text-lg font-bold mb-2 text-slate-900">
+              Subject Change
+            </h4>
+            <p class="text-slate-500 text-sm">
+              Want to switch streams in 12th Science? (e.g., from Maths to
+              Biology).
+            </p>
+          </div>
+          <div
+            class="col-span-1 md:col-span-2 lg:col-span-2 bg-emerald-50 border border-emerald-100 rounded-3xl p-6 md:p-8 flex flex-col justify-start hover:-translate-y-2 hover:shadow-xl transition-all duration-300 min-h-[180px]"
+          >
+            <i
+              class="fa-solid fa-laptop-house text-brand-green text-4xl mb-3"
+            ></i>
+
+            <h4 class="text-lg font-bold mb-2 text-slate-900">
+              Flexible Home Learners
+            </h4>
+
+            <p class="text-slate-600 text-sm">
+              Want to study from the comfort of your home? Enjoy fully flexible
+              learning.
+            </p>
+          </div>
+          <div
+            class="col-span-1 md:col-span-2 lg:col-span-2 bg-rose-50 border border-rose-100 rounded-3xl p-6 md:p-8 flex flex-col justify-start hover:-translate-y-2 hover:shadow-xl transition-all duration-300 min-h-[180px]"
+          >
+            <i
+              class="fa-solid fa-plane-departure text-brand-red text-4xl mb-3"
+            ></i>
+
+            <h4 class="text-lg font-bold mb-2 text-slate-900">
+              Study Abroad Visas
+            </h4>
+
+            <p class="text-slate-600 text-sm">
+              Need a recognized board certificate? NIOS is globally accepted for
+              abroad study.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 px-4 md:px-6">
+      <div
+        class="max-w-7xl mx-auto bg-brand-blue rounded-[40px] md:rounded-[60px] p-8 md:p-16 shadow-2xl relative overflow-hidden reveal"
+      >
+        <div
+          class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/30 blur-[100px] rounded-full pointer-events-none"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-red/20 blur-[100px] rounded-full pointer-events-none"
+        ></div>
+
+        <div class="text-center relative z-10 mb-12">
+          <span
+            class="inline-block bg-amber-500/20 text-brand-gold px-4 py-1.5 rounded-full font-bold text-sm mb-4 uppercase tracking-wider"
+            >Tailored For You</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-3">
+            Who is NIOS the Ideal Solution For?
+          </h2>
+          <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
+            NIOS is specifically designed for students who don't fit into the
+            traditional regular school system.
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10"
+        >
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-face-frown-open text-brand-red text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              Board Exam Failures
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-brand-red rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                Failed CBSE or State Boards? Pass quickly with NIOS and get your
+                career back on track immediately.
+              </p>
+            </div>
+          </div>
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-person-running text-brand-gold text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              School Dropouts
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-brand-gold rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                Left school mid-way? Complete your 10th or 12th to become
+                eligible for college admissions and jobs.
+              </p>
+            </div>
+          </div>
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-briefcase text-blue-400 text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              Working Professionals
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-blue-500 rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                NIOS offers flexible timings and on-demand exams, making it the
+                perfect solution for working students.
+              </p>
+            </div>
+          </div>
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-palette text-brand-green text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              Athletes & Artists
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-brand-green rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                Pursue cricket, dancing, or acting full-time. Complete your
+                boards without the pressure of regular school.
+              </p>
+            </div>
+          </div>
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-calendar-minus text-brand-gold text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              Gap Year Students
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-brand-gold rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                Want to resume your studies after a 1-2 year gap? NIOS is the
+                most suitable platform to catch up.
+              </p>
+            </div>
+          </div>
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-notes-medical text-brand-red text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              Medical Challenges
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-brand-red rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                Unable to attend regular school due to illness? Flexible
+                home-study methods make NIOS the best choice.
+              </p>
+            </div>
+          </div>
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-brain text-blue-400 text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              Overwhelmed Students
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-blue-500 rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                Facing exam pressure or anxiety? Students and parents choose
+                NIOS for stress-free learning.
+              </p>
+            </div>
+          </div>
+          <div
+            class="hover-card bg-white/5 border border-white/10 backdrop-blur-md rounded-3xl p-8 flex flex-col items-center justify-center text-center preserve-3d md:h-72 cursor-pointer group transition-all duration-300"
+          >
+            <i
+              class="fa-solid fa-right-left text-brand-green text-4xl md:text-5xl mb-4 transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            ></i>
+            <h4
+              class="text-white text-lg md:text-xl font-bold transition-all duration-300 md:group-hover:-translate-y-4 md:group-hover:opacity-0 translate-z-40"
+            >
+              Stream Changers
+            </h4>
+            <div
+              class="md:absolute inset-0 md:bg-brand-green rounded-3xl flex items-center justify-center md:p-6 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 translate-z-20 scale-95 md:group-hover:scale-100 mt-4 md:mt-0"
+            >
+              <p class="text-slate-300 md:text-white text-sm font-medium">
+                Want to switch between Science, Arts, or Commerce? Select your
+                preferred subjects easily.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 bg-white border-y border-slate-200">
+      <div class="max-w-5xl mx-auto reveal">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl md:text-4xl font-extrabold">
+            Why NIOS Over Regular Boards?
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+          <div
+            class="rounded-2xl overflow-hidden bg-white shadow-[0_10px_40px_rgba(211,47,47,0.20)]"
+          >
+            <div class="bg-rose-50 py-6 text-center border-b border-rose-100">
+              <h3 class="text-xl font-bold">
+                <i class="fa-solid fa-circle-xmark text-brand-red mr-2"></i>
+                Regular Repeat
+              </h3>
+            </div>
+            <ul class="p-6 md:p-8 space-y-4 text-sm md:text-base">
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700"
+                  >Wait an entire year to take exams.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700"
+                  >Mandatory daily school attendance.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700"
+                  >Must retake all subjects, even the ones you passed.</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700"
+                  >School dictates your subject choices.</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div
+            class="rounded-2xl overflow-hidden bg-white shadow-[0_0_35px_rgba(16,185,129,0.25)]"
+          >
+            <div
+              class="bg-emerald-50 py-6 text-center border-b border-emerald-100"
+            >
+              <h3 class="text-xl font-bold">
+                <i class="fa-solid fa-circle-check text-brand-green mr-2"></i>
+                NIOS Board
+              </h3>
+            </div>
+            <ul class="p-6 md:p-8 space-y-4 text-sm md:text-base">
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800">Save your year completely.</span>
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800"
+                  >No daily attendance required.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800"
+                  >Carry forward marks of 2 passed subjects.</span
+                >
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800"
+                  >Pick the subjects you actually want to study.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="py-20 px-6 bg-slate-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12 reveal">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-3">
+            ⭐ 15 Key Features of NIOS
+          </h2>
+          <p class="text-slate-500 text-sm md:text-base">
             Everything you get when you choose to save your year with us.
           </p>
         </div>
 
-        <div class="features-grid reveal">
-          <div class="feature-item">
-            <i class="fa-solid fa-certificate text-gold"></i>
-            <div>
-              <strong>Govt. Approved:</strong> Certified by Govt. of India.
-            </div>
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6 reveal"
+        >
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-amber-100 bg-amber-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-gold shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-certificate text-brand-gold text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Govt. Approved:</strong
+              >
+              Certified by Govt. of India.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-house-laptop text-blue"></i>
-            <div>
-              <strong>Flexible Classes:</strong> Study at your convenience.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-blue-100 bg-blue-50/40 border-t-4 md:border-t-0 md:border-l-4 border-blue-500 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-house-laptop text-blue-500 text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Flexible Classes:</strong
+              >
+              Study at your convenience.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-recycle text-green"></i>
-            <div>
-              <strong>TOC (Credit Transfer):</strong> Transfer 2 passed
-              subjects.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-emerald-500 bg-emerald-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-green shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-recycle text-brand-green text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >TOC (Credit Transfer):</strong
+              >
+              Transfer 2 passed subjects.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-book-open-reader text-red"></i>
-            <div>
-              <strong>Easy Syllabus:</strong> Simpler than regular boards.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-emerald-500 bg-emerald-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-red shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-book-open-reader text-brand-red text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Easy Syllabus:</strong
+              >
+              Simpler than regular boards.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-infinity text-blue"></i>
-            <div><strong>No Age Bar:</strong> No upper limit to study.</div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-rose-500 bg-rose-50/40 border-t-4 md:border-t-0 md:border-l-4 border-blue-500 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-infinity text-blue-500 text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-600"
+              ><strong class="block text-slate-900 md:inline"
+                >No Age Bar:</strong
+              >
+              No upper limit to study.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-map-location-dot text-gold"></i>
-            <div>
-              <strong>Center Choice:</strong> Exams in your home district.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-amber-100 bg-amber-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-gold shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-map-location-dot text-brand-gold text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Center Choice:</strong
+              >
+              Exams in your district.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-bullseye text-red"></i>
-            <div>
-              <strong>Best for Competitive:</strong> Ideal for NEET/JEE.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-rose-500 bg-rose-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-red shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-bullseye text-brand-red text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Best for NEET/JEE:</strong
+              >
+              Ideal for competitive prep.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-bolt text-gold"></i>
-            <div><strong>On-Demand Exam:</strong> Give exams when ready.</div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-amber-100 bg-amber-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-gold shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-bolt text-brand-gold text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >On-Demand Exam:</strong
+              >
+              Give exams when ready.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-pen-to-square text-green"></i>
-            <div>
-              <strong>Assessment (TMA):</strong> Home assignments for extra
-              marks.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-emerald-500 bg-emerald-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-green shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-pen-to-square text-brand-green text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Assessment (TMA):</strong
+              >
+              Home assignments for marks.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-laptop-file text-blue"></i>
-            <div><strong>Dual Mode:</strong> Printed & Digital books.</div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-blue-100 bg-blue-50/40 border-t-4 md:border-t-0 md:border-l-4 border-blue-500 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-laptop-file text-blue-500 text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Dual Mode:</strong
+              >
+              Printed & Digital books.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-shield-halved text-red"></i>
-            <div>
-              <strong>Saves Your Year:</strong> Stop your year from wasting.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-rose-500 bg-rose-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-red shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-shield-halved text-brand-red text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Saves Your Year:</strong
+              >
+              Stop your year from wasting.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-earth-americas text-blue"></i>
-            <div>
-              <strong>Global Acceptance:</strong> Valid for Visas & abroad.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-blue-100 bg-blue-50/40 border-t-4 md:border-t-0 md:border-l-4 border-blue-500 shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-earth-americas text-blue-500 text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Global Acceptance:</strong
+              >
+              Valid for Visas & abroad.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-chalkboard-user text-gold"></i>
-            <div>
-              <strong>Expert Faculty:</strong> Personal guidance provided.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-emerald-500 bg-emerald-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-green shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-wallet text-brand-green text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Affordable Fees:</strong
+              >
+              Cheaper than private schools.</span
+            >
           </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-wallet text-green"></i>
-            <div>
-              <strong>Affordable Fees:</strong> Cheaper than private schools.
-            </div>
-          </div>
-          <div class="feature-item">
-            <i class="fa-solid fa-handshake-angle text-red"></i>
-            <div>
-              <strong>Full Assistance:</strong> From form filling to marksheets.
-            </div>
+
+          <div
+            class="bg-white p-4 md:p-5 rounded-xl border border-rose-500 bg-rose-50/40 border-t-4 md:border-t-0 md:border-l-4 border-brand-red shadow-sm flex flex-col md:flex-row items-center md:items-start text-center md:text-left gap-3"
+          >
+            <i
+              class="fa-solid fa-handshake-angle text-brand-red text-3xl md:text-2xl mt-1"
+            ></i>
+            <span class="text-xs md:text-sm text-slate-700"
+              ><strong class="block text-slate-900 md:inline"
+                >Full Assistance:</strong
+              >
+              From form filling to marksheets.</span
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section bg-dark text-white" id="academics">
-      <div class="container reveal">
-        <div class="section-header text-center">
-          <h2 class="section-title text-white">Academic Streams</h2>
-          <p class="section-subtitle text-gray-light">
-            Click a stream below to explore available subjects.
-          </p>
+    <section id="streams" class="py-20 px-6 bg-brand-blue text-white">
+      <div class="max-w-5xl mx-auto reveal">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-3">
+            Academic Streams & Subjects
+          </h2>
+          <p class="text-slate-300">Choose a stream to explore subjects.</p>
         </div>
 
-        <div class="interactive-tabs-container">
-          <div class="tab-buttons">
-            <button class="tab-btn active" data-target="tab-science">
-              <i class="fa-solid fa-flask"></i> Science
-            </button>
-            <button class="tab-btn" data-target="tab-commerce">
-              <i class="fa-solid fa-chart-line"></i> Commerce
-            </button>
-            <button class="tab-btn" data-target="tab-arts">
-              <i class="fa-solid fa-book-open"></i> Arts
-            </button>
+        <!-- Tabs -->
+        <div class="flex flex-wrap justify-center gap-4 mb-10">
+          <button
+            onclick="showStream('science', 'bg-blue-500')"
+            class="stream-btn bg-blue-500 px-6 py-3 rounded-full font-bold transition-all"
+          >
+            Science
+          </button>
+
+          <button
+            onclick="showStream('commerce', 'bg-amber-500')"
+            class="stream-btn bg-white/10 px-6 py-3 rounded-full font-bold transition-all"
+          >
+            Commerce
+          </button>
+
+          <button
+            onclick="showStream('arts', 'bg-red-500')"
+            class="stream-btn bg-white/10 px-6 py-3 rounded-full font-bold transition-all"
+          >
+            Arts
+          </button>
+        </div>
+
+        <!-- Science -->
+        <div
+          id="science"
+          class="stream-content bg-white/10 border border-white/20 p-8 rounded-3xl backdrop-blur-md"
+        >
+          <div class="flex items-center gap-4 mb-6">
+            <div
+              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-3xl"
+            >
+              <i class="fa-solid fa-flask"></i>
+            </div>
+
+            <div>
+              <h3 class="text-2xl font-bold">Science Stream</h3>
+              <p class="text-slate-300 text-sm">
+                Best for NEET, JEE, Engineering & Medical careers.
+              </p>
+            </div>
           </div>
 
-          <div class="tab-content-wrapper glass-panel-dark">
-            <div class="tab-content active" id="tab-science">
-              <div class="tab-inner">
-                <div class="tab-icon text-blue">
-                  <i class="fa-solid fa-flask"></i>
-                </div>
-                <div>
-                  <h3 class="text-white">Science Stream</h3>
-                  <p class="text-gray-light">
-                    Ideal for NEET, JEE, and Medical/Engineering careers.
-                  </p>
-                  <div class="subject-tags mt-3">
-                    <span>Physics</span><span>Chemistry</span
-                    ><span>Biology</span><span>Mathematics</span
-                    ><span>Computer Science</span>
-                  </div>
-                </div>
-              </div>
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Physics</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Chemistry</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Biology</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Mathematics</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg"
+              >Computer Science</span
+            >
+            <span class="bg-white/20 px-4 py-2 rounded-lg">English</span>
+          </div>
+        </div>
+
+        <!-- Commerce -->
+        <div
+          id="commerce"
+          class="stream-content hidden bg-white/10 border border-white/20 p-8 rounded-3xl backdrop-blur-md"
+        >
+          <div class="flex items-center gap-4 mb-6">
+            <div
+              class="w-16 h-16 bg-brand-gold rounded-full flex items-center justify-center text-3xl"
+            >
+              <i class="fa-solid fa-chart-line"></i>
             </div>
-            <div class="tab-content" id="tab-commerce">
-              <div class="tab-inner">
-                <div class="tab-icon text-gold">
-                  <i class="fa-solid fa-chart-line"></i>
-                </div>
-                <div>
-                  <h3 class="text-white">Commerce Stream</h3>
-                  <p class="text-gray-light">
-                    Perfect for CA, CS, Business, and Finance careers.
-                  </p>
-                  <div class="subject-tags mt-3">
-                    <span>Accountancy</span><span>Business Studies</span
-                    ><span>Economics</span><span>Data Entry</span
-                    ><span>Mathematics</span>
-                  </div>
-                </div>
-              </div>
+
+            <div>
+              <h3 class="text-2xl font-bold">Commerce Stream</h3>
+              <p class="text-slate-300 text-sm">
+                Perfect for Business, Finance & Management fields.
+              </p>
             </div>
-            <div class="tab-content" id="tab-arts">
-              <div class="tab-inner">
-                <div class="tab-icon text-red">
-                  <i class="fa-solid fa-book-open"></i>
-                </div>
-                <div>
-                  <h3 class="text-white">Arts / Humanities</h3>
-                  <p class="text-gray-light">
-                    Best for UPSC, Law, Design, and Social Sciences.
-                  </p>
-                  <div class="subject-tags mt-3">
-                    <span>History</span><span>Geography</span
-                    ><span>Political Science</span><span>Psychology</span
-                    ><span>Sociology</span>
-                  </div>
-                </div>
-              </div>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Accountancy</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg"
+              >Business Studies</span
+            >
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Economics</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg"
+              >Data Entry Operations</span
+            >
+            <span class="bg-white/20 px-4 py-2 rounded-lg">English</span>
+          </div>
+        </div>
+
+        <!-- Arts -->
+        <div
+          id="arts"
+          class="stream-content hidden bg-white/10 border border-white/20 p-8 rounded-3xl backdrop-blur-md"
+        >
+          <div class="flex items-center gap-4 mb-6">
+            <div
+              class="w-16 h-16 bg-brand-red rounded-full flex items-center justify-center text-3xl"
+            >
+              <i class="fa-solid fa-book-open"></i>
             </div>
+
+            <div>
+              <h3 class="text-2xl font-bold">Arts / Humanities Stream</h3>
+              <p class="text-slate-300 text-sm">
+                Great for UPSC, Psychology, Law & Creative careers.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <span class="bg-white/20 px-4 py-2 rounded-lg">History</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Geography</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg"
+              >Political Science</span
+            >
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Sociology</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Psychology</span>
+            <span class="bg-white/20 px-4 py-2 rounded-lg">Hindi/Gujarati</span>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="section bg-light" id="schedule">
-      <div class="container reveal">
-        <div class="section-header text-center">
-          <h2 class="section-title">Your Exam Journey</h2>
-          <p class="section-subtitle">
-            No need to wait a whole year. Choose your exam cycle.
-          </p>
+    <section class="py-20 px-6 bg-slate-50">
+      <div class="max-w-4xl mx-auto reveal">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-extrabold">
+            Exam Schedule & TOC Facility
+          </h2>
         </div>
 
-        <div class="journey-timeline">
-          <div class="timeline-stop">
-            <div class="stop-node bg-blue text-white">
+        <div
+          class="relative border-l-4 border-slate-300 ml-6 md:ml-12 space-y-10"
+        >
+          <div class="relative pl-8">
+            <div
+              class="absolute -left-[22px] top-1 bg-blue-500 w-10 h-10 rounded-full border-4 border-slate-50 flex items-center justify-center text-white"
+            >
               <i class="fa-solid fa-calendar"></i>
             </div>
-            <div class="stop-card shadow-sm border-light">
-              <h4>Block-1 (April / May)</h4>
-              <p class="text-gray">
-                The regular annual public examination cycle. Ideal for students
-                starting fresh.
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200"
+            >
+              <h4 class="text-xl font-bold text-slate-900">
+                Block-1 (April/May Session)
+              </h4>
+              <p class="text-slate-600 text-sm md:text-base mt-2">
+                The regular annual public examination cycle.
               </p>
             </div>
           </div>
 
-          <div class="timeline-stop">
-            <div class="stop-node bg-gold text-white">
+          <div class="relative pl-8">
+            <div
+              class="absolute -left-[22px] top-1 bg-brand-gold w-10 h-10 rounded-full border-4 border-slate-50 flex items-center justify-center text-white"
+            >
               <i class="fa-solid fa-calendar"></i>
             </div>
-            <div class="stop-card shadow-sm border-light">
-              <h4>Block-2 (Oct / Nov)</h4>
-              <p class="text-gray">
-                The second major examination block. Perfect for mid-year
-                transfers.
+            <div
+              class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200"
+            >
+              <h4 class="text-xl font-bold text-slate-900">
+                Block-2 (October/November Session)
+              </h4>
+              <p class="text-slate-600 text-sm md:text-base mt-2">
+                The second major examination block for mid-year transfers.
               </p>
             </div>
           </div>
 
-          <div class="timeline-stop highlight-stop">
-            <div class="stop-node bg-red text-white pulse-animation">
+          <div class="relative pl-8">
+            <div
+              class="absolute -left-[22px] top-1 bg-brand-red w-10 h-10 rounded-full border-4 border-rose-100 flex items-center justify-center text-white animate-pulse"
+            >
               <i class="fa-solid fa-bolt"></i>
             </div>
-            <div class="stop-card shadow-lg border-red bg-red-light">
-              <span class="fast-tag">Fastest Route</span>
-              <h4 class="text-red">On-Demand Exam (ODE)</h4>
-              <p class="text-dark">
-                Held every single month! Take the exam exactly when you feel
-                prepared without waiting for a specific block.
+            <div
+              class="bg-rose-50 p-6 rounded-2xl shadow-md border-2 border-brand-red"
+            >
+              <span
+                class="inline-block bg-brand-red text-white text-xs font-bold uppercase px-3 py-1 rounded-full mb-2"
+                >Fastest Route</span
+              >
+              <h4 class="text-xl font-bold text-brand-red">
+                On-Demand Exam (ODE)
+              </h4>
+              <p class="text-slate-800 text-sm md:text-base mt-2 font-medium">
+                Exams are held every month. Take the exam exactly when you feel
+                prepared without waiting.
               </p>
             </div>
           </div>
-          <div class="timeline-stop mt-5">
+
+          <div class="relative pl-8 mt-12">
             <div
-              class="stop-node bg-green text-white"
-              style="background: var(--success-green)"
+              class="absolute -left-[22px] top-1 bg-brand-green w-10 h-10 rounded-full border-4 border-emerald-100 flex items-center justify-center text-white"
             >
               <i class="fa-solid fa-recycle"></i>
             </div>
             <div
-              class="stop-card shadow-sm border-light"
-              style="border-left: 4px solid var(--success-green)"
+              class="bg-emerald-50 p-6 rounded-2xl shadow-md border-2 border-brand-green border-emerald-500"
             >
-              <h4 class="text-green">♻️ TOC Facility (Transfer of Credit)</h4>
-              <p class="text-gray">
+              <h4 class="text-xl font-bold text-brand-green mb-2">
+                ♻️ TOC Facility (Transfer of Credit)
+              </h4>
+              <p class="text-slate-800 text-sm md:text-base">
                 If you failed in another board, you can transfer the marks of up
                 to 2 passed subjects directly into NIOS. You only have to give
                 exams for the remaining subjects!
@@ -761,208 +1187,738 @@
       </div>
     </section>
 
-    <section class="section bg-white overflow-hidden" id="future">
-      <div class="container reveal mb-5">
-        <div class="section-header text-center m-0">
-          <h2 class="section-title">Where Can NIOS Take You?</h2>
-          <p class="section-subtitle">Our certificate is valid everywhere.</p>
-        </div>
+    <section class="py-16 bg-white overflow-hidden border-y border-slate-200">
+      <div class="text-center mb-10 reveal px-6">
+        <h2 class="text-3xl md:text-4xl font-extrabold mb-2">
+          Where Can NIOS Take You?
+        </h2>
+        <p class="text-slate-500">
+          Our certificate is valid everywhere globally.
+        </p>
       </div>
+      <div
+        class="relative w-full overflow-hidden flex bg-slate-50 py-10 border-y border-slate-100"
+      >
+        <div class="marquee-track animate-marquee gap-4 md:gap-6 px-3">
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-graduation-cap text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Higher Education</span
+            >
+          </div>
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-user-doctor text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Medical (NEET)</span
+            >
+          </div>
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-gears text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Engineering (JEE)</span
+            >
+          </div>
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-landmark text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Government Jobs</span
+            >
+          </div>
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-plane-departure text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Study Abroad</span
+            >
+          </div>
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-laptop-code text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Professional Courses</span
+            >
+          </div>
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-shield-halved text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Defense Services</span
+            >
+          </div>
 
-      <div class="marquee-wrapper mt-4">
-        <div class="marquee-track">
-          <div class="marquee-item">
-            <i class="fa-solid fa-graduation-cap"></i> Degree Colleges (BA,
-            B.Com)
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-graduation-cap text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Higher Education</span
+            >
           </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-user-doctor"></i> Medical & NEET
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-user-doctor text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Medical (NEET)</span
+            >
           </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-gears"></i> IIT & Engineering
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-gears text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Engineering (JEE)</span
+            >
           </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-landmark"></i> UPSC & Govt Jobs
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-earth-americas"></i> Study Abroad Visas
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-laptop-code"></i> Professional Courses (CA/CS)
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-shield-halved"></i> Defense & Police
-          </div>
-
-          <div class="marquee-item">
-            <i class="fa-solid fa-graduation-cap"></i> Degree Colleges (BA,
-            B.Com)
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-user-doctor"></i> Medical & NEET
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-gears"></i> IIT & Engineering
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-landmark"></i> UPSC & Govt Jobs
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-earth-americas"></i> Study Abroad Visas
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-laptop-code"></i> Professional Courses (CA/CS)
-          </div>
-          <div class="marquee-item">
-            <i class="fa-solid fa-shield-halved"></i> Defense & Police
+          <div
+            class="w-40 h-40 md:w-52 md:h-52 bg-white border border-slate-200 rounded-3xl shadow-sm flex flex-col items-center justify-center text-center p-4 hover:bg-brand-gold hover:-translate-y-2 transition-all group cursor-pointer"
+          >
+            <i
+              class="fa-solid fa-landmark text-3xl md:text-5xl text-brand-red group-hover:text-white mb-2 md:mb-4 transition-colors"
+            ></i>
+            <span
+              class="font-bold text-slate-800 group-hover:text-white text-sm md:text-lg leading-tight"
+              >Government Jobs</span
+            >
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section bg-light" id="contact">
-      <div class="container reveal mb-5 pb-5 border-bottom">
-        <div class="section-header text-center">
-          <h2 class="section-title">The Enrollment Process</h2>
-          <p class="section-subtitle">
+    <section class="py-20 px-6 bg-slate-50 border-b border-slate-200">
+      <div class="max-w-6xl mx-auto reveal">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-extrabold">
+            The Enrollment Process
+          </h2>
+          <p class="text-slate-500 mt-2">
             We handle the heavy lifting. You focus on studying.
           </p>
         </div>
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-number">1</div>
-            <h4>Submit Documents</h4>
-            <p>Provide your Aadhar card, photo, and previous marksheets.</p>
-          </div>
-          <div class="step-connector">
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-          <div class="step-card">
-            <div class="step-number">2</div>
-            <h4>Expert Counseling</h4>
-            <p>We help you select the easiest subjects to ensure you pass.</p>
-          </div>
-          <div class="step-connector">
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
-          <div class="step-card">
-            <div class="step-number">3</div>
-            <h4>Confirmation</h4>
-            <p>Your admission is locked, ID is generated, and prep begins.</p>
-          </div>
-        </div>
-      </div>
 
-      <div class="container pt-4">
-        <div class="split-layout reveal">
-          <div class="faq-side">
-            <h2 class="section-title">💬 Got Questions?</h2>
-            <p class="section-subtitle mb-4">
-              Find answers to common questions below.
-            </p>
-            <div class="accordion" id="faqAccordion"></div>
-          </div>
-
-          <div class="form-side">
-            <div class="premium-form-card shadow-lg" id="admission-form">
-              <div class="form-header">
-                <h3>Save Your Seat</h3>
-                <p>Free consultation. No obligation.</p>
-              </div>
-
-              <div class="form-timer bg-dark text-white">
-                <span>Closes in:</span>
-                <div class="mini-countdown">
-                  <span id="hours">14</span>h : <span id="minutes">45</span>m :
-                  <span id="seconds">30</span>s
-                </div>
-              </div>
-
-              <form id="leadForm">
-                <div class="input-group">
-                  <label>Full Name</label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    placeholder="Enter your name"
-                    required
-                  />
-                </div>
-                <div class="input-group">
-                  <label>Mobile Number</label>
-                  <input
-                    type="tel"
-                    id="mobileNum"
-                    placeholder="10-digit number"
-                    pattern="[0-9]{10}"
-                    required
-                  />
-                </div>
-                <div class="input-group">
-                  <label>Target Class</label>
-                  <select id="classSelect" required>
-                    <option value="" disabled selected>Select...</option>
-                    <option value="10th">10th Standard</option>
-                    <option value="12th">12th Standard</option>
-                  </select>
-                </div>
-                <div class="input-group">
-                  <label>Previous Board</label>
-                  <select id="boardSelect" required>
-                    <option value="" disabled selected>Select Board...</option>
-                    <option value="GSEB">GSEB (Gujarat Board)</option>
-                    <option value="CBSE">CBSE Board</option>
-                    <option value="Other">Other Board / Not Applicable</option>
-                  </select>
-                </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary btn-block btn-large pulse-animation"
-                >
-                  GET FREE CONSULTATION
-                </button>
-                <p class="privacy-note">
-                  <i class="fa-solid fa-lock"></i> Your data is safe with us.
-                </p>
-              </form>
+        <div
+          class="flex flex-col md:flex-row justify-between items-center text-center gap-10 md:gap-4"
+        >
+          <div class="flex-1 px-4">
+            <div
+              class="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-lg"
+            >
+              1
             </div>
+            <h4 class="text-xl font-bold mb-2">Submit Documents</h4>
+            <p class="text-slate-600 text-sm md:text-base">
+              Provide your Aadhar card, photo, and previous marksheets.
+            </p>
+          </div>
+          <div class="hidden md:block text-slate-300 text-4xl">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <div class="flex-1 px-4">
+            <div
+              class="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-lg"
+            >
+              2
+            </div>
+            <h4 class="text-xl font-bold mb-2">Expert Counseling</h4>
+            <p class="text-slate-600 text-sm md:text-base">
+              We help you select the easiest subjects to ensure you pass.
+            </p>
+          </div>
+          <div class="hidden md:block text-slate-300 text-4xl">
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+
+          <div class="flex-1 px-4">
+            <div
+              class="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-lg"
+            >
+              3
+            </div>
+            <h4 class="text-xl font-bold mb-2">Confirmation</h4>
+            <p class="text-slate-600 text-sm md:text-base">
+              Your admission is locked, ID is generated, and prep begins.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer bg-dark text-center">
-      <div class="container">
-        <h3 class="footer-logo">edY<span class="text-gold">O</span>Ucate</h3>
+    <section id="contact" class="py-20 px-6 bg-slate-50">
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 reveal"
+      >
+        <!-- FAQ COLUMN -->
+        <div>
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+            💬 Got Questions?
+          </h2>
+          <p class="text-slate-500 mb-8">
+            Find answers to common questions below.
+          </p>
 
-        <div class="footer-addresses">
-          <div class="address-block">
-            <h4>
-              <i class="fa-solid fa-location-dot"></i> Head Office (Surat)
-            </h4>
-            <p class="text-gray">204, RJD Business Hub, Ghod Dod Road, Surat</p>
-          </div>
-          <div class="address-block">
-            <h4><i class="fa-solid fa-location-dot"></i> Kamrej Branch</h4>
-            <p class="text-gray">[Your Kamrej Office Address Here]</p>
+          <div class="space-y-4" id="faqContainer">
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span>Is the NIOS mark sheet valid for government jobs?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                Yes, NIOS is established by the Ministry of Education,
+                Government of India. The mark sheet is 100% valid for all
+                government and private sector jobs.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span
+                  >Can I appear for NEET or JEE after passing from NIOS?</span
+                >
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                Absolutely! NIOS students are fully eligible to appear for NEET,
+                JEE, and all other national-level entrance examinations.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span>What is TOC and how does it benefit me?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                TOC stands for Transfer of Credit. If you failed in State Boards
+                or CBSE, you can directly transfer the marks of up to two passed
+                subjects into your NIOS mark sheet.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span>How many times a year are exams conducted?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                Major public exams are held twice a year (April-May and
+                October-November). Additionally, On-Demand Exams (ODE) are
+                available almost every month.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span>Do I need to attend classes every day?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                No, we provide Flexible Classes, allowing you to plan your
+                studies from home according to your convenience without daily
+                attendance.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span
+                  >If I have never attended 10th grade, can I get direct
+                  admission?</span
+                >
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                Yes, if you are above 14 years of age and possess a valid ID
+                proof, you are eligible for direct admission to the 10th
+                standard.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span>Where will my exam center be located?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                Your exam center will be allotted at a Kendriya Vidyalaya or
+                government-recognized school close to your residential address.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span
+                  >Can I use the NIOS certificate for a Passport or Visa?</span
+                >
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                Yes, the NIOS certificate is widely recognized and accepted
+                globally by passport offices and foreign embassies.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span>Is the syllabus as tough as regular boards?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                No, the NIOS syllabus is designed to be highly practical,
+                simplified, and student-friendly.
+              </div>
+            </div>
+
+            <div
+              class="faq-item bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden"
+            >
+              <button
+                class="faq-btn w-full text-left px-5 py-4 md:px-6 md:py-5 flex items-center justify-between gap-4 font-bold text-slate-800 hover:bg-slate-50 transition-colors"
+                onclick="toggleFAQ(this)"
+              >
+                <span>What documents are required for admission?</span>
+                <i
+                  class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"
+                ></i>
+              </button>
+              <div
+                class="faq-answer max-h-0 overflow-hidden opacity-0 px-5 md:px-6 text-slate-600 text-sm md:text-base leading-relaxed transition-all duration-500 ease-in-out"
+              >
+                You will need your Aadhar Card, previous school's Leaving
+                Certificate (LC), failed mark sheet, and a passport-size
+                photograph.
+              </div>
+            </div>
           </div>
         </div>
 
-        <p class="text-sm text-gray mt-5">
+        <!-- FORM COLUMN -->
+        <div class="relative">
+          <div
+            id="admission-form"
+            class="sticky top-24 bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden border-t-8 border-t-brand-red"
+          >
+            <div class="p-6 md:p-8 pb-4 text-center">
+              <h3 class="text-2xl font-extrabold text-slate-900 mb-2">
+                Save Your Seat
+              </h3>
+              <p class="text-slate-500 text-sm md:text-base">
+                Free consultation. No obligation.
+              </p>
+            </div>
+
+            <div
+              class="bg-brand-blue text-white py-3 px-6 flex justify-center items-center gap-4 text-sm font-bold"
+            >
+              <span>Closes in:</span>
+              <div class="text-brand-gold text-lg font-heading">
+                <span id="hours">14</span>h : <span id="minutes">45</span>m :
+                <span id="seconds">30</span>s
+              </div>
+            </div>
+
+            <form id="leadForm" class="p-6 md:p-8">
+              <div class="mb-4 md:mb-5">
+                <label
+                  class="block font-bold text-brand-blue mb-2 text-sm md:text-base"
+                  >Full Name</label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-red focus:bg-white transition-colors"
+                  placeholder="Enter your name"
+                  required
+                />
+              </div>
+
+              <div class="mb-4 md:mb-5">
+                <label
+                  class="block font-bold text-brand-blue mb-2 text-sm md:text-base"
+                  >Mobile Number</label
+                >
+                <input
+                  type="tel"
+                  id="mobileNum"
+                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-red focus:bg-white transition-colors"
+                  placeholder="10-digit number"
+                  pattern="[0-9]{10}"
+                  required
+                />
+              </div>
+
+              <div class="mb-4 md:mb-5">
+                <label
+                  class="block font-bold text-brand-blue mb-2 text-sm md:text-base"
+                  >Target Class</label
+                >
+                <select
+                  id="classSelect"
+                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-red focus:bg-white transition-colors"
+                  required
+                >
+                  <option value="" disabled selected>Select...</option>
+                  <option value="10th">10th Standard</option>
+                  <option value="12th">12th Standard</option>
+                </select>
+              </div>
+
+              <div class="mb-6 md:mb-8">
+                <label
+                  class="block font-bold text-brand-blue mb-2 text-sm md:text-base"
+                  >Previous Board</label
+                >
+                <select
+                  id="boardSelect"
+                  class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-red focus:bg-white transition-colors"
+                  required
+                >
+                  <option value="" disabled selected>Select Board...</option>
+                  <option value="GSEB">GSEB (Gujarat Board)</option>
+                  <option value="CBSE">CBSE Board</option>
+                  <option value="Other">Other Board / Not Applicable</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full bg-brand-red hover:bg-brand-redHover text-white font-bold font-heading text-sm md:text-lg py-3 md:py-4 rounded-xl shadow-lg hover:-translate-y-1 transition-all animate-pulse"
+              >
+                GET FREE CONSULTATION
+              </button>
+
+              <p class="text-center text-slate-400 text-xs md:text-sm mt-4">
+                <i class="fa-solid fa-lock"></i> Your data is 100% safe with us.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="bg-brand-blue text-center py-16 px-6 border-t border-slate-800"
+    >
+      <div class="max-w-4xl mx-auto">
+        <h3
+          class="font-heading font-black text-3xl text-white mb-8 tracking-tighter"
+        >
+          edY<span class="text-brand-gold">O</span>Ucate
+        </h3>
+
+        <div
+          class="flex flex-col md:flex-row justify-center gap-10 md:gap-20 mb-12"
+        >
+          <div>
+            <h4 class="text-brand-gold font-bold mb-2">
+              <i class="fa-solid fa-location-dot"></i> Head Office (Surat)
+            </h4>
+            <p class="text-slate-400 text-sm md:text-base">
+              204, RJD Business Hub, Ghod Dod Road, Surat
+            </p>
+          </div>
+          <div>
+            <h4 class="text-brand-gold font-bold mb-2">
+              <i class="fa-solid fa-location-dot"></i> Kamrej Branch
+            </h4>
+            <p class="text-slate-400 text-sm md:text-base">
+              [Your Kamrej Office Address Here]
+            </p>
+          </div>
+        </div>
+
+        <p class="text-slate-500 text-xs md:text-sm">
           &copy; 2026 edYOUcate. All Rights Reserved. |
-          <i class="fa-solid fa-phone"></i> +91 9876543210
+          <i class="fa-solid fa-phone"></i> +91 98765 43210
         </p>
       </div>
     </footer>
 
-    <div class="mobile-sticky-cta">
-      <a href="#admission-form" class="btn btn-primary btn-block"
-        >Apply Now <i class="fa-solid fa-arrow-right"></i
-      ></a>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Keep a reference so the old WebGL context can be destroyed
+        let vantaEffect = null;
+
+        // 1. 3D Vanta Background
+        if (
+          typeof VANTA !== "undefined" &&
+          document.querySelector("#vanta-hero")
+        ) {
+          if (vantaEffect) {
+            vantaEffect.destroy();
+          }
+
+          vantaEffect = VANTA.NET({
+            el: "#vanta-hero",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.0,
+            minWidth: 200.0,
+            scale: 1.0,
+            scaleMobile: 1.0,
+            color: 0xd32f2f,
+            backgroundColor: 0x0f172a,
+            points: 12.0,
+            maxDistance: 22.0,
+            spacing: 18.0,
+          });
+        }
+
+        // 2. VanillaTilt 3D Cards
+        if (typeof VanillaTilt !== "undefined") {
+          const hoverCards = document.querySelectorAll(".hover-card");
+          if (hoverCards.length > 0) {
+            VanillaTilt.init(hoverCards, {
+              max: 15,
+              speed: 400,
+              glare: true,
+              "max-glare": 0.2,
+              scale: 1.05,
+            });
+          }
+        }
+
+        // 3. Smooth Scroll Reveal
+        const revealElements = document.querySelectorAll(".reveal");
+        if (revealElements.length > 0) {
+          const revealOnScroll = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("active");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.1, rootMargin: "0px 0px -30px 0px" },
+          );
+
+          revealElements.forEach((el) => revealOnScroll.observe(el));
+        }
+
+        // 4. Mobile Menu Toggle
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        if (mobileBtn && navLinks) {
+          mobileBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("hidden");
+            navLinks.classList.toggle("flex");
+          });
+        }
+
+        // 5. Form Submission (WhatsApp setup)
+        const leadForm = document.getElementById("leadForm");
+        if (leadForm) {
+          leadForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById("fullName")?.value || "";
+            const mobile = document.getElementById("mobileNum")?.value || "";
+            const cls = document.getElementById("classSelect")?.value || "";
+            const board = document.getElementById("boardSelect")?.value || "";
+
+            const msg = `Name: ${name}\nMobile: ${mobile}\nClass: ${cls}\nPrevious Board: ${board}\n\nHello edYOUcate, I would like to request more information regarding NIOS admission.`;
+
+            window.open(
+              `https://wa.me/919023431612?text=${encodeURIComponent(msg)}`,
+              "_blank",
+            );
+          });
+        }
+
+        // 6. Evergreen Countdown Timer
+        const hoursEl = document.getElementById("hours");
+        const minutesEl = document.getElementById("minutes");
+        const secondsEl = document.getElementById("seconds");
+
+        if (hoursEl && minutesEl && secondsEl) {
+          let end = new Date().getTime() + 14 * 3600 * 1000 + 45 * 60 * 1000;
+
+          setInterval(() => {
+            let now = new Date().getTime();
+            let dist = end - now;
+
+            if (dist < 0) {
+              end = new Date().getTime() + 14 * 3600 * 1000;
+              dist = end - now;
+            }
+
+            hoursEl.innerText = String(
+              Math.floor((dist % 86400000) / 3600000),
+            ).padStart(2, "0");
+            minutesEl.innerText = String(
+              Math.floor((dist % 3600000) / 60000),
+            ).padStart(2, "0");
+            secondsEl.innerText = String(
+              Math.floor((dist % 60000) / 1000),
+            ).padStart(2, "0");
+          }, 1000);
+        }
+      });
+    </script>
+    <script>
+      function toggleFAQ(button) {
+        const item = button.parentElement;
+        const answer = item.querySelector(".faq-answer");
+        const icon = button.querySelector("i");
+
+        const allItems = document.querySelectorAll(".faq-item");
+
+        allItems.forEach((faq) => {
+          if (faq !== item) {
+            const otherAnswer = faq.querySelector(".faq-answer");
+            const otherIcon = faq.querySelector("i");
+
+            otherAnswer.classList.remove("max-h-[500px]", "opacity-100");
+
+            otherAnswer.classList.add("max-h-0", "opacity-0");
+
+            otherIcon.classList.remove("rotate-180");
+          }
+        });
+
+        if (answer.classList.contains("max-h-0")) {
+          answer.classList.remove("max-h-0", "opacity-0");
+
+          answer.classList.add("max-h-[500px]", "opacity-100");
+
+          icon.classList.add("rotate-180");
+        } else {
+          answer.classList.remove("max-h-[500px]", "opacity-100");
+
+          answer.classList.add("max-h-0", "opacity-0");
+
+          icon.classList.remove("rotate-180");
+        }
+      }
+    </script>
   </body>
 </html>
