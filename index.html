@@ -139,6 +139,85 @@
       event.target.classList.add(colorClass);
     }
   </script>
+  <script>
+    async function loadGoogleReviews() {
+      const placeId = "ChIJ1xUdXgdN4DsRc-ByFoCfk9Q";
+      const apiKey = "AIzaSyAzR98VMc6Ur4x8K02ehKo_1zPoJk7QqhA";
+
+      try {
+        const response = await fetch(
+          `https://places.googleapis.com/v1/places/${placeId}`,
+          {
+            headers: {
+              "X-Goog-Api-Key": apiKey,
+              "X-Goog-FieldMask": "reviews,rating,userRatingCount",
+            },
+          },
+        );
+
+        const data = await response.json();
+
+        if (!data.reviews) return;
+
+        const container = document.getElementById("reviewsContainer");
+
+        data.reviews.forEach((review) => {
+          const stars = "★".repeat(review.rating);
+
+          const card = `
+        <div class="w-[320px] h-[260px] shrink-0 rounded-2xl bg-white border border-slate-200 p-5 shadow-sm flex flex-col">
+
+          <p class="text-slate-600 text-sm leading-relaxed flex-1 overflow-hidden mb-6">
+  ${review.text?.text || ""}
+</p>
+
+<div class="pt-4 flex items-center justify-between">
+  
+  <div class="flex items-center gap-3">
+    <img
+      src="${review.authorAttribution?.photoUri || ""}"
+      class="w-11 h-11 rounded-full object-cover"
+    />
+
+    <div>
+      <h3 class="font-bold text-slate-900 leading-tight">
+        ${review.authorAttribution?.displayName || "Google User"}
+      </h3>
+
+      <div class="text-amber-500 text-sm">
+        ${stars}
+      </div>
+    </div>
+  </div>
+
+ <div class="w-11 h-11 shrink-0 flex items-center justify-center">
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+    alt="Google"
+    class="w-7 h-7 object-contain"
+  />
+</div>
+
+</div>
+        </div>
+      `;
+
+          container.innerHTML += card;
+        });
+
+        const track = document.getElementById("reviewsTrack");
+        const clone = container.cloneNode(true);
+
+        clone.setAttribute("aria-hidden", "true");
+
+        track.appendChild(clone);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    loadGoogleReviews();
+  </script>
   <body class="bg-white text-slate-900">
     <nav
       id="navbar"
@@ -258,60 +337,83 @@
     </nav>
     <header
       id="vanta-hero"
-      class="relative pt-40 pb-20 px-6 flex flex-col items-center justify-center min-h-[95vh]"
+      class="relative pt-40 pb-20 px-6 flex items-center min-h-[95vh]"
     >
       <div
-        class="max-w-4xl w-full mx-auto relative z-10 text-center flex flex-col items-center"
+        class="max-w-7xl w-full mx-auto relative z-10 grid lg:grid-cols-2 gap-24 items-center"
       >
-        <div
-          class="reveal inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 rounded-full text-white font-semibold text-sm mb-8"
-        >
-          <i class="fa-solid fa-shield-halved"></i> MHRD & Govt. of India
-          Approved
+        <!-- LEFT CONTENT -->
+        <div class="text-left flex flex-col items-start">
+          <div
+            class="reveal inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-md px-5 py-2.5 rounded-full text-white font-semibold text-sm mb-8"
+          >
+            <i class="fa-solid fa-shield-halved"></i>
+            MHRD & Govt. of India Approved
+          </div>
+
+          <h1
+            class="reveal text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg"
+          >
+            Failed in
+            <span
+              class="bg-gradient-to-r from-brand-gold to-yellow-400 bg-clip-text text-transparent"
+            >
+              10th/12th?
+            </span>
+
+            <br />
+
+            Your Year Is
+            <span
+              class="bg-gradient-to-r from-brand-gold to-yellow-400 bg-clip-text text-transparent"
+            >
+              Not Over Yet!
+            </span>
+          </h1>
+
+          <h2
+            class="reveal text-base md:text-xl font-medium text-slate-100 mb-10 drop-shadow-md max-w-2xl leading-relaxed"
+          >
+            Complete 10th & 12th with Govt. Approved NIOS Certification — Valid
+            Across India & Abroad.
+          </h2>
+
+          <div class="reveal w-full sm:w-auto">
+            <a
+              href="#admission-form"
+              class="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-brand-redHover text-white px-8 md:px-10 py-4 md:py-5 rounded-full font-heading font-bold text-base md:text-xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 animate-pulse"
+            >
+              Yes, I Want To Save My Year!
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
         </div>
 
-        <h1
-          class="reveal text-3xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 drop-shadow-lg"
-        >
-          Failed Your Exams?
-          <span
-            class="bg-gradient-to-r from-brand-gold to-yellow-400 bg-clip-text text-transparent"
-            >Don't Panic!</span
-          ><br />
-          Don't Waste An Entire Year.
-        </h1>
-
-        <h2
-          class="reveal text-base md:text-xl font-medium text-slate-100 mb-8 drop-shadow-md max-w-3xl"
-        >
-          Get your fully valid 10th or 12th Govt. Approved Marksheet in just a
-          few months with edYOUcate!
-        </h2>
-
+        <!-- RIGHT VIDEO -->
         <div
-          class="reveal w-full max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-white/10 mb-12 bg-black"
+          class="reveal w-full rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-black"
         >
           <iframe
             width="100%"
             height="450"
             src="https://www.youtube.com/embed/qHtVy91UBsI?rel=0&autoplay=1&mute=1&playsinline=1"
-            class="w-full h-56 md:h-96"
+            class="w-full h-[260px] md:h-[420px]"
             title="YouTube video player"
             frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+            "
             allowfullscreen
           ></iframe>
         </div>
-
-        <div class="reveal w-full px-4 mb-8">
-          <a
-            href="#admission-form"
-            class="inline-flex items-center justify-center w-full md:w-auto gap-3 bg-brand-red hover:bg-brand-redHover text-white px-6 md:px-10 py-4 md:py-5 rounded-full font-heading font-bold text-sm md:text-xl transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 animate-pulse"
-          >
-            Yes, I Want To Save My Year! <i class="fa-solid fa-arrow-right"></i>
-          </a>
-        </div>
       </div>
 
+      <!-- BOTTOM FLOATING TRUST BAR -->
       <div
         class="w-full max-w-6xl mx-auto absolute -bottom-10 left-1/2 -translate-x-1/2 px-6 z-20 hidden lg:block"
       >
@@ -324,22 +426,24 @@
             ></i>
             MHRD Approved
           </div>
+
           <div class="flex items-center gap-3 font-bold text-slate-600">
             <i class="fa-solid fa-calendar-check text-2xl text-brand-blue"></i>
             Since 1989
           </div>
+
           <div class="flex items-center gap-3 font-bold text-slate-600">
             <i class="fa-solid fa-user-graduate text-2xl text-brand-blue"></i>
             100% Eligible (NEET/JEE/Visa)
           </div>
+
           <div class="flex items-center gap-3 font-bold text-slate-600">
-            <i class="fa-solid fa-certificate text-2xl text-brand-blue"></i> ISO
-            Certified
+            <i class="fa-solid fa-certificate text-2xl text-brand-blue"></i>
+            ISO Certified
           </div>
         </div>
       </div>
     </header>
-
     <section
       id="about"
       class="bg-white pt-24 md:pt-32 pb-20 px-6 border-b border-slate-200"
@@ -1505,157 +1609,12 @@
       <div class="relative overflow-hidden">
         <div
           id="reviewsTrack"
-          class="flex w-max animate-marquee hover:[animation-play-state:paused] max-md:[animation-duration:30s] gap-0"
+          class="flex w-max animate-marquee hover:[animation-play-state:paused] max-md:[animation-duration:42s]"
         >
-          <div class="reviews-group flex gap-5 pr-5">
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                I am very thankful to edYOUcate for guiding me throughout my
-                NIOS admission process. The staff explained everything step by
-                step, making it very easy to understand.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Divya Patel</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                The guidance I received at edYOUcate was excellent. The
-                admission process was stress-free, and they gave me full support
-                during exams.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Rohit Gore</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                I was worried about my NIOS admission, but EDYOUCATE made it
-                super easy. The process was smooth and highly recommended.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Ajinkya Apte</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                The staff is very helpful and answers every question in a nice
-                and organized manner. I was able to clear my exam very easily
-                because of this institute.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Siddharth Talaviya</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                What sets them apart is their commitment to consulting and
-                helping students build valuable skills for life and career
-                success.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Henil Kathiriya</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                The team at edYOUcate is extremely professional and helpful.
-                They are the best NIOS admission center in Surat for a reason.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Shubham Singh</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                Thanks to their unwavering support and guidance, I am now
-                academically thriving and poised for a bright future.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Riya Ogriwala</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                edYOUcate is the best platform for distance education. Their
-                expertise in NIOS admissions is unmatched.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Komal Solanki</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                If you're looking for the best open schooling center in Surat,
-                edYOUcate is the way to go.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Krishna Patel</h3>
-              </div>
-            </div>
-
-            <div
-              class="w-[250px] md:w-[250px] h-[300px] shrink-0 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 hover:shadow-[0_0_40px_rgba(211,47,47,0.18)] backdrop-blur-md p-6 shadow-2xl flex flex-col"
-            >
-              <p
-                class="text-slate-300 leading-relaxed text-sm md:text-base flex-1"
-              >
-                The best consultancy for distance education in Surat. edYOUcate
-                is simply outstanding.
-              </p>
-              <div class="mt-5 pt-4 border-t border-white/10">
-                <h3 class="text-white font-bold text-lg">Raj Jariwala</h3>
-              </div>
-            </div>
-          </div>
+          <div id="reviewsContainer" class="reviews-group flex gap-5 mr-5"></div>
         </div>
       </div>
     </section>
-
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const track = document.getElementById("reviewsTrack");
@@ -1906,10 +1865,10 @@
           >
             <div class="p-6 md:p-8 pb-4 text-center">
               <h3 class="text-2xl font-extrabold text-slate-900 mb-2">
-                Save Your Seat
+                Need Guidance for 10th/12th?
               </h3>
               <p class="text-slate-500 text-sm md:text-base">
-                Free consultation. No obligation.
+                Fill the Form & Our Experts Will Assist You.
               </p>
             </div>
 
