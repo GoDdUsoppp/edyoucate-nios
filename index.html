@@ -118,27 +118,7 @@
       }
     </style>
   </head>
-  <script>
-    function showStream(streamId, colorClass) {
-      const contents = document.querySelectorAll(".stream-content");
-      const buttons = document.querySelectorAll(".stream-btn");
 
-      contents.forEach((content) => {
-        content.classList.add("hidden");
-      });
-
-      buttons.forEach((btn) => {
-        btn.classList.remove("bg-blue-500", "bg-amber-500", "bg-red-500");
-
-        btn.classList.add("bg-white/10");
-      });
-
-      document.getElementById(streamId).classList.remove("hidden");
-
-      event.target.classList.remove("bg-white/10");
-      event.target.classList.add(colorClass);
-    }
-  </script>
   <script>
     async function loadGoogleReviews() {
       const placeId = "ChIJ1xUdXgdN4DsRc-ByFoCfk9Q";
@@ -292,43 +272,43 @@
         >
           <a
             href="#about"
-            class="block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >What is NIOS?</a
           >
           <a
             href="#audience"
-            class="block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >For You</a
           >
           <a
             href="#features"
-            class="block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >Features</a
           >
           <a
             href="#streams"
-            class="block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >Streams</a
           >
           <a
             href="#process"
-            class="block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >Process</a
           >
           <a
             href="#reviews"
-            class="block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >Reviews</a
           >
           <a
             href="#contact"
-            class="block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >FAQs</a
           >
 
           <a
             href="#admission-form"
-            class="mt-3 block text-center bg-brand-red hover:bg-brand-redHover text-white px-5 py-3 rounded-full font-heading font-bold text-sm transition-all duration-300"
+            class="mobile-link mt-3 block text-center bg-brand-red hover:bg-brand-redHover text-white px-5 py-3 rounded-full font-heading font-bold text-sm transition-all duration-300"
           >
             Apply Now
           </a>
@@ -445,6 +425,176 @@
       </div>
     </header>
     <section
+      id="about-edyoucate"
+      class="relative py-24 px-6 bg-slate-50 overflow-hidden border-y border-white/10"
+    >
+      <div
+        class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-stretch reveal"
+      >
+        <div>
+          <span
+            class="inline-flex items-center gap-2 bg-white/10 text-slate-900 border border-white/10 px-4 py-1.5 rounded-full font-bold text-sm mb-5 backdrop-blur-md"
+          >
+            <i class="fa-solid fa-shield-halved text-brand-gold"></i>
+            About edYOUcate
+          </span>
+
+          <h2 class="text-3xl md:text-4xl font-extrabold mb-5 text-slate-900">
+            Why Students Trust edYOUcate
+          </h2>
+
+          <p
+            class="text-slate-600 text-base md:text-lg leading-relaxed mb-5 max-w-2xl"
+          >
+            edYOUcate is a trusted open schooling admission guidance platform
+            helping students complete their education through recognized boards
+            like NIOS.
+          </p>
+
+          <p
+            class="text-slate-600 text-base md:text-lg leading-relaxed mb-8 max-w-2xl"
+          >
+            Our mission is to help students save their academic year with proper
+            guidance, flexible learning, and career-focused support.
+          </p>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div
+              class="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(211,47,47,0.16)]"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent pointer-events-none"
+              ></div>
+              <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-brand-red/15 flex items-center justify-center text-brand-red"
+                  >
+                    <i class="fa-solid fa-book-open-reader"></i>
+                  </div>
+                  <h4 class="font-bold text-slate-900">
+                    Open Schooling Experts
+                  </h4>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Years of experience in open schooling guidance.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(211,47,47,0.16)]"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent pointer-events-none"
+              ></div>
+              <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-brand-gold/15 flex items-center justify-center text-brand-gold"
+                  >
+                    <i class="fa-solid fa-user-graduate"></i>
+                  </div>
+                  <h4 class="font-bold text-slate-900">Student Success</h4>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Thousands of students successfully guided.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(211,47,47,0.16)]"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent pointer-events-none"
+              ></div>
+              <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-brand-green/15 flex items-center justify-center text-brand-green"
+                  >
+                    <i class="fa-solid fa-school"></i>
+                  </div>
+                  <h4 class="font-bold text-slate-900">Govt. Recognized</h4>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Support for approved open schooling boards.
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="group relative overflow-hidden rounded-2xl bg-white border border-slate-200 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_35px_rgba(211,47,47,0.16)]"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/8 to-transparent pointer-events-none"
+              ></div>
+              <div class="relative z-10">
+                <div class="flex items-center gap-3 mb-3">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-400"
+                  >
+                    <i class="fa-solid fa-briefcase"></i>
+                  </div>
+                  <h4 class="font-bold text-slate-900">Career Counseling</h4>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                  Expert subject and career guidance.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-full">
+          <div
+            class="h-full rounded-[2rem] bg-brand-blue p-8 md:p-10 shadow-xl flex flex-col justify-center"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"
+            ></div>
+
+            <div class="relative z-10">
+              <div
+                class="inline-flex items-center gap-2 bg-white/10 border border-white/10 px-4 py-2 rounded-full text-sm font-semibold mb-6 text-slate-300"
+              >
+                <i class="fa-solid fa-shield-halved text-brand-gold"></i>
+                Trusted Guidance Platform
+              </div>
+
+              <h3
+                class="text-2xl md:text-4xl font-extrabold text-slate-100 mb-4"
+              >
+                Helping You Save Your Academic Year
+              </h3>
+
+              <p class="text-slate-300 md:text-1xl leading-relaxed mb-6">
+                Whether you need admission guidance, subject selection support,
+                or a clear path to complete 10th or 12th, edYOUcate is built to
+                make the process simple and stress-free.
+              </p>
+
+              <div class="space-y-3">
+                <div class="flex items-center gap-5">
+                  <i class="fa-solid fa-circle-check text-brand-green"></i>
+                  <span class="text-slate-300">Proper admission guidance</span>
+                </div>
+                <div class="flex items-center gap-5">
+                  <i class="fa-solid fa-circle-check text-brand-green"></i>
+                  <span class="text-slate-300">Flexible learning support</span>
+                </div>
+                <div class="flex items-center gap-5">
+                  <i class="fa-solid fa-circle-check text-brand-green"></i>
+                  <span class="text-slate-300">Career-focused counseling</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
       id="about"
       class="bg-white pt-24 md:pt-32 pb-20 px-6 border-b border-slate-200"
     >
@@ -510,7 +660,8 @@
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12 reveal">
           <h2 class="text-3xl md:text-4xl font-extrabold mb-3">
-            Is This Program <span class="text-brand-gold">For You?</span>
+            Who can <span class="text-brand-gold">Benefit </span> from
+            <span class="text-brand-gold">NIOS?</span>
           </h2>
           <p class="text-slate-500 max-w-2xl mx-auto text-sm md:text-base">
             If you fall into any of these 8 categories, NIOS is your perfect
@@ -849,7 +1000,7 @@
               >
                 <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
                 <span class="text-slate-700"
-                  >Wait an entire year to take exams.</span
+                  >Wait another full year after failing.</span
                 >
               </li>
               <li
@@ -857,7 +1008,7 @@
               >
                 <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
                 <span class="text-slate-700"
-                  >Mandatory daily school attendance.</span
+                  >Fixed school routine and attendance.</span
                 >
               </li>
               <li
@@ -865,13 +1016,43 @@
               >
                 <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
                 <span class="text-slate-700"
-                  >Must retake all subjects, even the ones you passed.</span
+                  >High pressure and strict schedules.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700">Limited subject flexibility.</span>
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700"
+                  >Difficult for students with academic gaps.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700"
+                  >Same learning method for every student.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
+                <span class="text-slate-700"
+                  >Limited flexibility after setbacks.</span
                 >
               </li>
               <li class="flex items-start gap-3">
                 <i class="fa-solid fa-xmark mt-1 text-brand-red"></i>
                 <span class="text-slate-700"
-                  >School dictates your subject choices.</span
+                  >Stressful academic environments.</span
                 >
               </li>
             </ul>
@@ -892,14 +1073,26 @@
                 class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
               >
                 <i class="fa-solid fa-check mt-1 text-brand-green"></i>
-                <span class="text-slate-800">Save your year completely.</span>
+                <span class="text-slate-800">Save your academic year.</span>
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800">Flexible learning options.</span>
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800">Study at your own pace.</span>
               </li>
               <li
                 class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
               >
                 <i class="fa-solid fa-check mt-1 text-brand-green"></i>
                 <span class="text-slate-800"
-                  >No daily attendance required.</span
+                  >Pick the subjects you actually want to study.</span
                 >
               </li>
               <li
@@ -907,13 +1100,29 @@
               >
                 <i class="fa-solid fa-check mt-1 text-brand-green"></i>
                 <span class="text-slate-800"
-                  >Carry forward marks of 2 passed subjects.</span
+                  >Easy continuation of your studies.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800"
+                  >Student friendly learning systems.</span
+                >
+              </li>
+              <li
+                class="flex items-start gap-3 border-b border-dashed border-slate-200 pb-4"
+              >
+                <i class="fa-solid fa-check mt-1 text-brand-green"></i>
+                <span class="text-slate-800"
+                  >Fresh start with learning opportunities.</span
                 >
               </li>
               <li class="flex items-start gap-3">
                 <i class="fa-solid fa-check mt-1 text-brand-green"></i>
                 <span class="text-slate-800"
-                  >Pick the subjects you actually want to study.</span
+                  >Flexible and balanced education.</span
                 >
               </li>
             </ul>
@@ -1136,136 +1345,236 @@
     </section>
 
     <section id="streams" class="py-20 px-6 bg-brand-blue text-white">
-      <div class="max-w-5xl mx-auto reveal">
+      <div class="max-w-6xl mx-auto reveal">
         <div class="text-center mb-12">
           <h2 class="text-3xl md:text-4xl font-extrabold mb-3">
             Academic Streams & Subjects
           </h2>
-          <p class="text-slate-300">Choose a stream to explore subjects.</p>
+          <p class="text-slate-300 text-sm md:text-base">
+            Choose Std 10 or Std 12 to explore available subjects.
+          </p>
         </div>
 
-        <!-- Tabs -->
-        <div class="flex flex-wrap justify-center gap-4 mb-10">
-          <button
-            onclick="showStream('science', 'bg-blue-500')"
-            class="stream-btn bg-blue-500 px-6 py-3 rounded-full font-bold transition-all"
+        <div class="mb-8 flex justify-center">
+          <div
+            class="flex flex-wrap items-center justify-center gap-2 md:gap-4"
           >
-            Science
-          </button>
+            <button
+              id="std10Btn"
+              type="button"
+              class="px-4 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-bold bg-white text-brand-blue transition-all duration-300"
+            >
+              Std 10
+            </button>
 
-          <button
-            onclick="showStream('commerce', 'bg-amber-500')"
-            class="stream-btn bg-white/10 px-6 py-3 rounded-full font-bold transition-all"
-          >
-            Commerce
-          </button>
+            <button
+              id="std12Btn"
+              type="button"
+              class="px-4 md:px-6 py-2.5 md:py-3 rounded-full text-sm md:text-base font-bold bg-white/10 hover:bg-white/20 text-white transition-all duration-300"
+            >
+              Std 12
+            </button>
 
-          <button
-            onclick="showStream('arts', 'bg-red-500')"
-            class="stream-btn bg-white/10 px-6 py-3 rounded-full font-bold transition-all"
-          >
-            Arts
-          </button>
+            <div
+              id="streamOptions"
+              class="flex items-center gap-2 md:gap-3 overflow-hidden max-w-0 opacity-0 transition-all duration-500 ease-in-out"
+            >
+              <button
+                type="button"
+                class="stream-btn px-4 md:px-5 py-2.5 md:py-3 rounded-full text-sm md:text-base font-bold whitespace-nowrap transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
+                data-stream="science"
+              >
+                Science
+              </button>
+
+              <button
+                type="button"
+                class="stream-btn px-4 md:px-5 py-2.5 md:py-3 rounded-full text-sm md:text-base font-bold whitespace-nowrap transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
+                data-stream="commerce"
+              >
+                Commerce
+              </button>
+
+              <button
+                type="button"
+                class="stream-btn px-4 md:px-5 py-2.5 md:py-3 rounded-full text-sm md:text-base font-bold whitespace-nowrap transition-all duration-300 bg-white/10 text-white hover:bg-white/20"
+                data-stream="arts"
+              >
+                Arts
+              </button>
+            </div>
+          </div>
         </div>
 
-        <!-- Science -->
         <div
-          id="science"
-          class="stream-content bg-white/10 border border-white/20 p-8 rounded-3xl backdrop-blur-md"
+          id="subjectCard"
+          class="bg-white/10 border border-white/10 backdrop-blur-md rounded-[1.5rem] md:rounded-[2rem] p-4 md:p-8 shadow-2xl transition-all duration-500"
         >
           <div class="flex items-center gap-4 mb-6">
             <div
-              class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-3xl"
-            >
-              <i class="fa-solid fa-flask"></i>
-            </div>
-
-            <div>
-              <h3 class="text-2xl font-bold">Science Stream</h3>
-              <p class="text-slate-300 text-sm">
-                Best for NEET, JEE, Engineering & Medical careers.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Physics</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Chemistry</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Biology</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Mathematics</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg"
-              >Computer Science</span
-            >
-            <span class="bg-white/20 px-4 py-2 rounded-lg">English</span>
-          </div>
-        </div>
-
-        <!-- Commerce -->
-        <div
-          id="commerce"
-          class="stream-content hidden bg-white/10 border border-white/20 p-8 rounded-3xl backdrop-blur-md"
-        >
-          <div class="flex items-center gap-4 mb-6">
-            <div
-              class="w-16 h-16 bg-brand-gold rounded-full flex items-center justify-center text-3xl"
-            >
-              <i class="fa-solid fa-chart-line"></i>
-            </div>
-
-            <div>
-              <h3 class="text-2xl font-bold">Commerce Stream</h3>
-              <p class="text-slate-300 text-sm">
-                Perfect for Business, Finance & Management fields.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Accountancy</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg"
-              >Business Studies</span
-            >
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Economics</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg"
-              >Data Entry Operations</span
-            >
-            <span class="bg-white/20 px-4 py-2 rounded-lg">English</span>
-          </div>
-        </div>
-
-        <!-- Arts -->
-        <div
-          id="arts"
-          class="stream-content hidden bg-white/10 border border-white/20 p-8 rounded-3xl backdrop-blur-md"
-        >
-          <div class="flex items-center gap-4 mb-6">
-            <div
-              class="w-16 h-16 bg-brand-red rounded-full flex items-center justify-center text-3xl"
+              id="subjectIcon"
+              class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-brand-red flex items-center justify-center text-2xl md:text-3xl text-white transition-all duration-500"
             >
               <i class="fa-solid fa-book-open"></i>
             </div>
 
             <div>
-              <h3 class="text-2xl font-bold">Arts / Humanities Stream</h3>
-              <p class="text-slate-300 text-sm">
-                Great for UPSC, Psychology, Law & Creative careers.
+              <h3 id="subjectTitle" class="text-xl md:text-3xl font-extrabold">
+                Std 10 Subjects
+              </h3>
+
+              <p
+                id="subjectSubtitle"
+                class="text-slate-300 text-xs md:text-base mt-1"
+              >
+                Open schooling subjects for Std 10 students.
               </p>
             </div>
           </div>
 
-          <div class="flex flex-wrap gap-3">
-            <span class="bg-white/20 px-4 py-2 rounded-lg">History</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Geography</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg"
-              >Political Science</span
-            >
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Sociology</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Psychology</span>
-            <span class="bg-white/20 px-4 py-2 rounded-lg">Hindi/Gujarati</span>
-          </div>
+          <div
+            id="subjectGrid"
+            class="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3"
+          ></div>
         </div>
       </div>
     </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const std10Btn = document.getElementById("std10Btn");
+        const std12Btn = document.getElementById("std12Btn");
+        const streamOptions = document.getElementById("streamOptions");
+
+        const subjectTitle = document.getElementById("subjectTitle");
+        const subjectSubtitle = document.getElementById("subjectSubtitle");
+        const subjectGrid = document.getElementById("subjectGrid");
+        const subjectIcon = document.getElementById("subjectIcon");
+
+        const data = {
+          std10: {
+            title: "Std 10 Subjects",
+            subtitle: "Open schooling subjects for Std 10 students.",
+            icon: "fa-book-open",
+            color: "bg-brand-red",
+            subjects: [
+              "English",
+              "Gujarati",
+              "Mathematics",
+              "Science & Technology",
+              "Social Science",
+              "Data Entry Operation",
+            ],
+          },
+          science: {
+            title: "Science Stream",
+            subtitle: "Best for NEET, JEE, Engineering & Medical careers.",
+            icon: "fa-flask",
+            color: "bg-blue-500",
+            subjects: [
+              "Physics",
+              "Chemistry",
+              "Biology",
+              "Mathematics",
+              "Computer Science",
+              "English",
+            ],
+          },
+          commerce: {
+            title: "Commerce Stream",
+            subtitle: "Perfect for Business, Finance & Management fields.",
+            icon: "fa-chart-line",
+            color: "bg-amber-500",
+            subjects: [
+              "Accountancy",
+              "Business Studies",
+              "Economics",
+              "Data Entry Operations",
+              "English",
+            ],
+          },
+          arts: {
+            title: "Arts / Humanities Stream",
+            subtitle: "Great for UPSC, Law, Psychology & Creative careers.",
+            icon: "fa-book",
+            color: "bg-rose-500",
+            subjects: [
+              "History",
+              "Geography",
+              "Political Science",
+              "Sociology",
+              "Psychology",
+              "Hindi/Gujarati",
+            ],
+          },
+        };
+
+        function renderSubjects(key) {
+          const section = data[key];
+          subjectTitle.textContent = section.title;
+          subjectSubtitle.textContent = section.subtitle;
+          subjectIcon.className = `w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center text-2xl md:text-3xl text-white transition-all duration-500 ${section.color}`;
+          subjectIcon.innerHTML = `<i class="fa-solid ${section.icon}"></i>`;
+          subjectGrid.innerHTML = section.subjects
+            .map(
+              (subject) => `
+            <div class="bg-white/10 border border-white/10 rounded-xl md:rounded-2xl p-3 md:p-4 text-center text-xs md:text-base font-semibold">
+              ${subject}
+            </div>
+          `,
+            )
+            .join("");
+        }
+
+        function setMainButton(activeBtn, inactiveBtn) {
+          activeBtn.style.backgroundColor = "#ffffff";
+          activeBtn.style.color = "#0f172a";
+
+          inactiveBtn.style.backgroundColor = "rgba(255,255,255,0.10)";
+          inactiveBtn.style.color = "#ffffff";
+        }
+
+        function resetStreamButtons() {
+          document.querySelectorAll(".stream-btn").forEach((b) => {
+            b.style.backgroundColor = "rgba(255,255,255,0.10)";
+            b.style.color = "#ffffff";
+          });
+        }
+
+        renderSubjects("std10");
+
+        std10Btn.addEventListener("click", () => {
+          renderSubjects("std10");
+          streamOptions.style.maxWidth = "0px";
+          streamOptions.style.opacity = "0";
+          setMainButton(std10Btn, std12Btn);
+          resetStreamButtons();
+        });
+
+        std12Btn.addEventListener("click", () => {
+          streamOptions.style.maxWidth = "500px";
+          streamOptions.style.opacity = "1";
+          setMainButton(std12Btn, std10Btn);
+        });
+
+        document.querySelectorAll(".stream-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            resetStreamButtons();
+
+            if (btn.dataset.stream === "science") {
+              btn.style.backgroundColor = "#3b82f6";
+            } else if (btn.dataset.stream === "commerce") {
+              btn.style.backgroundColor = "#f59e0b";
+            } else if (btn.dataset.stream === "arts") {
+              btn.style.backgroundColor = "#f43f5e";
+            }
+
+            btn.style.color = "#ffffff";
+            renderSubjects(btn.dataset.stream);
+          });
+        });
+      });
+    </script>
     <section class="py-20 px-6 bg-slate-50">
       <div class="max-w-4xl mx-auto reveal">
         <div class="text-center mb-12">
@@ -1531,6 +1840,25 @@
         }
       });
     </script>
+    <script>
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          // MOBILE MENU CONTAINER
+          const mobileMenu = document.getElementById("mobileMenu");
+
+          // HIDE MENU
+          mobileMenu.classList.add("hidden");
+
+          // OPTIONAL: reset hamburger icon if needed
+          const menuIcon = document.getElementById("menuIcon");
+
+          if (menuIcon) {
+            menuIcon.classList.remove("fa-xmark");
+            menuIcon.classList.add("fa-bars");
+          }
+        });
+      });
+    </script>
     <section
       id="process"
       class="py-20 px-6 bg-slate-50 border-b border-slate-200"
@@ -1611,7 +1939,10 @@
           id="reviewsTrack"
           class="flex w-max animate-marquee hover:[animation-play-state:paused] max-md:[animation-duration:42s]"
         >
-          <div id="reviewsContainer" class="reviews-group flex gap-5 mr-5"></div>
+          <div
+            id="reviewsContainer"
+            class="reviews-group flex gap-5 mr-5"
+          ></div>
         </div>
       </div>
     </section>
@@ -1893,6 +2224,7 @@
                   id="fullName"
                   class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-brand-red focus:bg-white transition-colors"
                   placeholder="Enter your name"
+                  maxlength="50"
                   required
                 />
               </div>
@@ -1961,41 +2293,130 @@
       </div>
     </section>
 
-    <footer
-      class="bg-brand-blue text-center py-16 px-6 border-t border-slate-800"
-    >
-      <div class="max-w-4xl mx-auto">
-        <h3
-          class="font-heading font-black text-3xl text-white mb-8 tracking-tighter"
-        >
-          edY<span class="text-brand-gold">O</span>Ucate
-        </h3>
+    <footer class="bg-brand-blue text-white border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
+        <!-- TOP INTRO -->
+        <div class="max-w-3xl mx-auto text-center mb-12">
+          <p class="text-slate-300 text-lg md:text-xl leading-relaxed">
+            Helping students continue their education through recognized open
+            schooling boards like NIOS with proper guidance and career-focused
+            support.
+          </p>
 
-        <div
-          class="flex flex-col md:flex-row justify-center gap-10 md:gap-20 mb-12"
-        >
-          <div>
-            <h4 class="text-brand-gold font-bold mb-2">
-              <i class="fa-solid fa-location-dot"></i> Head Office (Surat)
-            </h4>
-            <p class="text-slate-400 text-sm md:text-base">
-              204, RJD Business Hub, Ghod Dod Road, Surat
-            </p>
-          </div>
-          <div>
-            <h4 class="text-brand-gold font-bold mb-2">
-              <i class="fa-solid fa-location-dot"></i> Kamrej Branch
-            </h4>
-            <p class="text-slate-400 text-sm md:text-base">
-              [Your Kamrej Office Address Here]
-            </p>
+          <!-- SOCIALS -->
+          <div class="flex items-center justify-center gap-3 mt-8">
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              class="w-11 h-11 rounded-xl bg-white/10 hover:bg-brand-red transition-all duration-300 flex items-center justify-center text-lg"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+
+            <a
+              href="https://wa.me/918866230077"
+              target="_blank"
+              class="w-11 h-11 rounded-xl bg-white/10 hover:bg-green-500 transition-all duration-300 flex items-center justify-center text-lg"
+            >
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              class="w-11 h-11 rounded-xl bg-white/10 hover:bg-blue-500 transition-all duration-300 flex items-center justify-center text-lg"
+            >
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
           </div>
         </div>
 
-        <p class="text-slate-500 text-xs md:text-sm">
-          &copy; 2026 edYOUcate. All Rights Reserved. |
-          <i class="fa-solid fa-phone"></i> +91 98765 43210
-        </p>
+        <!-- ADDRESS CARDS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          <!-- HEAD OFFICE -->
+          <div
+            class="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-7 backdrop-blur-md max-w-sm w-full mx-auto"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-11 h-11 rounded-xl bg-brand-red/15 flex items-center justify-center text-brand-red"
+              >
+                <i class="fa-solid fa-building"></i>
+              </div>
+
+              <h3 class="text-2xl font-bold">Head Office</h3>
+            </div>
+
+            <div class="space-y-4 text-slate-300">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+
+                <p class="leading-relaxed">
+                  C-1 Purnima Society,<br />
+                  Near Kotak House,<br />
+                  Ghod Dod Road, Surat - 395007
+                </p>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-brand-green"></i>
+
+                <a
+                  href="tel:08866230077"
+                  class="hover:text-white transition-colors"
+                >
+                  08866230077
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- BRANCH OFFICE -->
+          <div
+            class="bg-white/5 border border-white/10 rounded-3xl p-6 md:p-7 backdrop-blur-md max-w-sm w-full mx-auto"
+          >
+            <div class="flex items-center gap-3 mb-5">
+              <div
+                class="w-11 h-11 rounded-xl bg-brand-gold/15 flex items-center justify-center text-brand-gold"
+              >
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+
+              <h3 class="text-2xl font-bold">Branch Office</h3>
+            </div>
+
+            <div class="space-y-4 text-slate-300">
+              <div class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-brand-gold mt-1"></i>
+
+                <p class="leading-relaxed">
+                  441, 4th Floor, Kashi Plaza,<br />
+                  Kamrej, Surat – 394180
+                </p>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <i class="fa-solid fa-phone text-brand-green"></i>
+
+                <a
+                  href="tel:08866230088"
+                  class="hover:text-white transition-colors"
+                >
+                  08866230088
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM -->
+        <div
+          class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
+        >
+          <p class="text-slate-400 text-sm">
+            © 2026 edYOUcate. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
 
@@ -2069,24 +2490,57 @@
         // 4. Mobile Menu Toggle
 
         // 5. Form Submission (WhatsApp setup)
-        const leadForm = document.getElementById("leadForm");
-        if (leadForm) {
-          leadForm.addEventListener("submit", (e) => {
-            e.preventDefault();
 
-            const name = document.getElementById("fullName")?.value || "";
-            const mobile = document.getElementById("mobileNum")?.value || "";
-            const cls = document.getElementById("classSelect")?.value || "";
-            const board = document.getElementById("boardSelect")?.value || "";
-
-            const msg = `Name: ${name}\nMobile: ${mobile}\nClass: ${cls}\nPrevious Board: ${board}\n\nHello edYOUcate, I would like to request more information regarding NIOS admission.`;
-
-            window.open(
-              `https://wa.me/919023431612?text=${encodeURIComponent(msg)}`,
-              "_blank",
-            );
-          });
+        function sanitizeInput(input) {
+          return input
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;")
+            .trim();
         }
+
+        document.getElementById("leadForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const name = sanitizeInput(document.getElementById("fullName").value);
+
+          const mobile = sanitizeInput(
+            document.getElementById("mobileNum").value,
+          );
+
+          const cls = sanitizeInput(
+            document.getElementById("classSelect").value,
+          );
+
+          const board = sanitizeInput(
+            document.getElementById("boardSelect").value,
+          );
+
+          // Mobile validation
+          if (!/^\d{10}$/.test(mobile)) {
+            alert("Please enter a valid 10-digit mobile number.");
+            return;
+          }
+
+          // Name validation
+          if (name.length < 2) {
+            alert("Please enter a valid name.");
+            return;
+          }
+
+          let msg = `Name: ${name}
+Mobile: ${mobile}
+Class: ${cls}
+Previous Board: ${board}
+
+Hello edYOUcate, I would like more information regarding NIOS admission.`;
+
+          window.open(
+            `https://wa.me/918866230077?text=${encodeURIComponent(msg)}`,
+            "_blank",
+          );
+        });
 
         // 6. Evergreen Countdown Timer
         const hoursEl = document.getElementById("hours");
