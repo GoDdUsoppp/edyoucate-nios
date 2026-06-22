@@ -2705,9 +2705,148 @@ edYOUcate"
 
     <footer
       id="contact-us"
-      class="bg-brand-blue text-white border-t border-white/10"
+      class="bg-brand-blue text-white border-t border-white/10 pt-16 md:pt-20"
     >
-      <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20">
+      
+      <!-- 1. TOP BANNER: WhatsApp CTA & Reviews -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 relative z-10">
+        <div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
+          
+         <!-- WhatsApp Card -->
+          <div class="flex-1 bg-white/5 rounded-[1.5rem] sm:rounded-[2rem] p-4 sm:p-8 lg:px-10 lg:py-10 border border-white/10 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-5 sm:gap-8 relative overflow-hidden group hover:bg-white/10 transition-colors duration-500">
+            
+            <!-- Left Content (Icon, Text & Desktop Button) -->
+            <div class="flex flex-row gap-3 sm:gap-6 items-start md:items-center w-full text-left">
+              
+              <!-- WhatsApp Icon (Pushed down on mobile using mt-8, reset on desktop with md:mt-0) -->
+              <i class="fa-brands fa-whatsapp text-[42px] sm:text-[85px] text-white shrink-0 drop-shadow-lg leading-none mt-8 md:mt-0"></i>
+              
+              <!-- Text Block -->
+              <div class="flex flex-col items-start w-full">
+                <span class="bg-[#25D366]/20 text-[#25D366] px-2 py-1 sm:px-3 sm:py-1.5 rounded-md text-[9px] sm:text-[10px] font-bold uppercase tracking-wider mb-1.5 sm:mb-2.5 inline-block leading-none">Stay Updated</span>
+                <h3 class="text-white text-[19px] sm:text-3xl lg:text-[2.1rem] font-bold font-heading mb-1 sm:mb-2 leading-[1.15] tracking-tight">
+                  Education Updates <br class="hidden xl:block" />
+                  <span class="text-[#25D366]">at Your Fingertips!</span>
+                </h3>
+                <p class="text-white/70 text-[11px] sm:text-sm max-w-md leading-snug m-0">
+                  Latest news, alerts, results, admissions & more – straight to your WhatsApp.
+                </p>
+                
+                <!-- DESKTOP ONLY: Join Group Button -->
+                <a href="https://whatsapp.com/channel/0029Va6AaecHVvThA8mhvO3O" target="_blank" class="hidden md:flex mt-6 group bg-white/10 hover:bg-white/20 border border-white/10 text-white px-6 py-3 rounded-xl font-bold items-center justify-center w-full sm:w-auto gap-2 transition-all duration-300 shadow-sm hover:-translate-y-1">
+                  Join WhatsApp Channel <i class="fa-solid fa-arrow-right -rotate-45 text-xl opacity-80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+                </a>
+
+                <!-- MOBILE ONLY: Side-by-side Button & QR -->
+                <div class="flex md:hidden flex-row items-center justify-between w-full mt-1 pt-4 border-t border-white/10">
+                  
+                  <!-- Button -->
+                  <a href="https://whatsapp.com/channel/0029Va6AaecHVvThA8mhvO3O" target="_blank" class="bg-white/10 hover:bg-white/20 border border-white/10 text-white px-3.5 py-2.5 rounded-lg font-bold flex items-center justify-center text-[11px] gap-1.5 transition-all duration-300 shadow-sm leading-none text-center whitespace-nowrap">
+                    Join Channel <i class="fa-solid fa-arrow-right -rotate-45 text-[12px] opacity-80"></i>
+                  </a>
+                  
+                  <!-- QR Code Section -->
+                  <div class="shrink-0 flex items-center gap-2 pl-3 border-l border-white/10">
+                    <div class="bg-white p-1 rounded-xl w-[48px] h-[48px] flex items-center justify-center shadow-xl shrink-0">
+                      <img src="qr-code.png" alt="QR" class="w-full h-full object-contain" />
+                    </div>
+                    <div class="flex flex-col text-left shrink-0">
+                      <span class="text-white/80 text-[9px] font-medium leading-[1.1]">Scan to</span>
+                      <span class="text-white/80 text-[9px] font-medium leading-[1.1]">Follow</span>
+                      <i class="fa-solid fa-arrow-turn-up -scale-x-100 text-[#25D366] text-[11px] leading-none mt-0.5"></i>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+            <!-- DESKTOP ONLY: Right Content QR Code -->
+            <div class="hidden md:flex shrink-0 flex-col items-center justify-center md:pl-10 md:border-l border-white/10">
+              <div class="bg-white p-2 rounded-2xl w-[130px] h-[130px] flex items-center justify-center shadow-xl relative group-hover:scale-105 transition-transform duration-500 overflow-hidden">
+                <img src="qr-code.png" alt="WhatsApp QR Code" class="w-full h-full object-contain" />
+              </div>
+              <p class="text-white/80 text-[11px] font-medium mt-3 flex items-center gap-1.5">
+                <i class="fa-solid fa-arrow-turn-up -scale-x-100 text-[#25D366] text-base leading-none"></i> Scan to Follow
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Reviews Column (Side-by-side on mobile, stacked on desktop) -->
+          <div class="grid grid-cols-2 lg:flex lg:flex-col lg:w-[320px] shrink-0 gap-3 sm:gap-4">
+            
+            <!-- Google Review Card -->
+            <div class="bg-white rounded-xl sm:rounded-2xl overflow-hidden flex flex-col shadow-xl border border-slate-200 hover:-translate-y-1 transition-transform duration-300">
+              <div class="p-3 sm:p-5 flex-1 flex flex-col justify-center">
+                <div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+                  <!-- Google SVG Logo -->
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="w-6 h-6 sm:w-8 sm:h-8 shrink-0">
+                    <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+                    <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                    <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                    <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                  </svg>
+                  <div>
+                    <h4 class="text-[#4285F4] font-bold text-[14px] sm:text-[19px] leading-none tracking-tight">Google</h4>
+                    <p class="text-slate-500 text-[10px] sm:text-[13px] font-medium mt-0.5">Reviews</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 sm:gap-4">
+                  <div class="font-black text-xl sm:text-3xl text-slate-900 leading-none">4.9<span class="text-[11px] sm:text-base text-slate-400 font-bold">/5</span></div>
+                  <div class="hidden sm:block w-px h-8 bg-slate-200"></div>
+                  <div class="flex flex-col">
+                    <div class="flex text-brand-gold text-[10px] sm:text-sm gap-0.5">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-[8px] sm:text-[10px] text-slate-400 font-semibold mt-0.5">Based on 200+ reviews</span>
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="bg-brand-blue text-white text-center py-2 sm:py-2.5 text-[10px] sm:text-[13px] font-semibold hover:bg-brand-redHover transition-colors flex items-center justify-center gap-1 sm:gap-1.5 group">
+                <span class="hidden sm:inline">Click to view on Google</span>
+                <span class="sm:hidden">View on Google</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px] sm:text-base group-hover:scale-110 transition-transform"></i>
+              </a>
+            </div>
+
+            <!-- Justdial Review Card -->
+            <div class="bg-white rounded-xl sm:rounded-2xl overflow-hidden flex flex-col shadow-xl border border-slate-200 hover:-translate-y-1 transition-transform duration-300">
+              <div class="p-3 sm:p-5 flex-1 flex flex-col justify-center">
+                <div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+                  <!-- JD Text Logo -->
+                  <div class="shrink-0 flex items-center justify-center">
+                     <span class="text-[#0052CC] font-black text-xl sm:text-3xl leading-none font-heading">J</span><span class="text-[#FF7A00] font-black text-xl sm:text-3xl leading-none font-heading">d</span>
+                  </div>
+                  <div>
+                    <h4 class="leading-none tracking-tight"><span class="text-[#0052CC] font-bold text-[14px] sm:text-[19px]">Just</span><span class="text-[#FF7A00] font-bold text-[14px] sm:text-[19px]">dial</span></h4>
+                    <p class="text-slate-500 text-[10px] sm:text-[13px] font-medium mt-0.5">Reviews</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 sm:gap-4">
+                  <div class="font-black text-xl sm:text-3xl text-slate-900 leading-none">4.9<span class="text-[11px] sm:text-base text-slate-400 font-bold">/5</span></div>
+                  <div class="hidden sm:block w-px h-8 bg-slate-200"></div>
+                  <div class="flex flex-col">
+                    <div class="flex text-brand-gold text-[10px] sm:text-sm gap-0.5">
+                      <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="text-[8px] sm:text-[10px] text-slate-400 font-semibold mt-0.5">Based on 150+ reviews</span>
+                  </div>
+                </div>
+              </div>
+              <a href="https://jsdl.in/DT-54NP6AM21TY" class="bg-brand-blue text-white text-center py-2 sm:py-2.5 text-[10px] sm:text-[13px] font-semibold hover:bg-brand-redHover transition-colors flex items-center justify-center gap-1 sm:gap-1.5 group">
+                <span class="hidden sm:inline">Click to view on Justdial</span>
+                <span class="sm:hidden">View on Justdial</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[11px] sm:text-base group-hover:scale-110 transition-transform"></i>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 pb-16 md:pb-20">
         <!-- TOP INTRO -->
         <div class="max-w-3xl mx-auto text-center mb-12">
           <p class="text-slate-300 text-lg md:text-xl leading-relaxed">
@@ -2828,7 +2967,7 @@ edYOUcate"
           class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left"
         >
           <p class="text-slate-400 text-sm">
-            © 2026 edYOUcate. All rights reserved.
+            © 2026 edYOUcate. All rights reserved.[cite: 2]
           </p>
         </div>
       </div>
