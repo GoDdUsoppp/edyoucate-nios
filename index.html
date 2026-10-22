@@ -280,6 +280,11 @@ edYOUcate"
             >Who can Apply?</a
           >
           <a
+            href="#blogs"
+            class="font-semibold text-slate-700 hover:text-brand-red transition-colors whitespace-nowrap"
+            >Blogs</a
+          >
+          <a
             href="#reviews"
             class="font-semibold text-slate-700 hover:text-brand-red transition-colors whitespace-nowrap"
             >Reviews</a
@@ -342,6 +347,11 @@ edYOUcate"
             href="#whocanapply"
             class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
             >Who can apply?</a
+          >
+          <a
+            href="#blogs"
+            class="mobile-link block py-3 font-semibold text-slate-700 hover:text-brand-red"
+            >Blogs</a
           >
           <a
             href="#reviews"
@@ -1932,67 +1942,752 @@ edYOUcate"
         });
       });
     </script>
+    <!-- ============================================ -->
+    <!-- EDYOUCATE BLOG & STORIES SECTION            -->
+    <!-- (Live Feed from edYOUcate Blog)              -->
+    <!-- ============================================ -->
     <section
-      id="process"
-      class="py-20 px-6 bg-slate-50 border-b border-slate-200"
+      id="blogs"
+      class="py-20 md:py-24 px-4 sm:px-6 lg:px-8 bg-slate-50 border-b border-slate-200 relative overflow-hidden"
     >
-      <div class="max-w-6xl mx-auto reveal">
-        <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-extrabold">
-            The Enrollment Process
+      <!-- Backward compatibility anchor for any links targeting #process -->
+      <span id="process" class="absolute -top-24 left-0 pointer-events-none" aria-hidden="true"></span>
+
+      <!-- Background decorative glow -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-red/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 reveal">
+          <div
+            class="inline-flex items-center gap-2 bg-brand-red/10 border border-brand-red/20 px-4 py-1.5 rounded-full text-brand-red font-semibold text-xs md:text-sm uppercase tracking-wider mb-4 shadow-sm"
+          >
+            <i class="fa-solid fa-newspaper text-brand-red"></i>
+            The edYOUcate Blog
+          </div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+            Latest Stories & Guides from
+            <span class="bg-gradient-to-r from-brand-red via-red-600 to-amber-600 bg-clip-text text-transparent">
+              blog.edyoucate
+            </span>
           </h2>
-          <p class="text-slate-500 mt-2">
-            We handle the heavy lifting. You focus on studying.
+          <p class="text-slate-600 mt-4 text-base md:text-lg leading-relaxed">
+            Curious minds, fresh perspectives, and comprehensive guides on NIOS admission, board failure recovery, and distance education degrees.
           </p>
+
+          <div class="flex items-center justify-center gap-2 mt-3">
+            <span id="blogSyncStatus" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              Auto-synced with blog.edyoucate
+            </span>
+          </div>
+
+          <!-- Top Action Bar with Filter Tabs and Blog Website Link -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-2">
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2" id="blogFilterContainer">
+              <button
+                type="button"
+                onclick="filterBlogPosts('all', this)"
+                class="blog-filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-brand-blue text-white shadow-md active-filter"
+                data-category="all"
+              >
+                All Stories (8)
+              </button>
+              <button
+                type="button"
+                onclick="filterBlogPosts('nios', this)"
+                class="blog-filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-slate-700 border border-slate-200 hover:border-brand-red hover:text-brand-red hover:bg-slate-100"
+                data-category="nios"
+              >
+                NIOS Open Schooling
+              </button>
+              <button
+                type="button"
+                onclick="filterBlogPosts('distance', this)"
+                class="blog-filter-btn px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 bg-white text-slate-700 border border-slate-200 hover:border-brand-red hover:text-brand-red hover:bg-slate-100"
+                data-category="distance"
+              >
+                Distance Learning
+              </button>
+            </div>
+
+            <!-- Direct Link to Blog Website -->
+            <a
+              href="https://edyoucate-blog.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-red hover:text-brand-redHover bg-white px-4 py-2 rounded-full border border-brand-red/30 hover:border-brand-red shadow-sm hover:shadow transition-all shrink-0"
+            >
+              <span>Visit Blog Website</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+          </div>
         </div>
 
-        <div
-          class="flex flex-col md:flex-row justify-between items-center text-center gap-10 md:gap-4"
-        >
-          <div class="flex-1 px-4">
-            <div
-              class="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-lg"
-            >
-              1
+        <!-- Featured Story Banner (Leading to Main Guide) -->
+        <div class="mb-10 reveal featured-blog-banner" data-category="nios">
+          <a
+            href="https://edyoucate-blog.vercel.app/nios-admission-surat-guide.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1 group"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+              <div class="lg:col-span-7 relative h-64 sm:h-80 lg:h-auto overflow-hidden bg-slate-900">
+                <img
+                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                  alt="Students discussing NIOS admission"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent lg:hidden"></div>
+                <div class="absolute top-4 left-4 z-10">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-lg">
+                    <i class="fa-solid fa-star text-[10px]"></i>
+                    FEATURED / NIOS
+                  </span>
+                </div>
+              </div>
+              <div class="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-3 uppercase tracking-wider">
+                    <span>OCT 19, 2026</span>
+                    <span>•</span>
+                    <span>11 MIN READ</span>
+                    <span>•</span>
+                    <span>BY EDYOUCATE EDITORIAL</span>
+                  </div>
+                  <h3 class="text-2xl sm:text-3xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    NIOS Admission in Surat: A Simple Guide for Students & Parents.
+                  </h3>
+                  <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                    A board exam result can feel like the end of a plan. For many students, it is simply the moment to find a different route through recognized open schooling.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <span class="inline-flex items-center gap-2 text-brand-red font-bold text-sm sm:text-base group-hover:gap-3 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400 font-medium">edyoucate-blog.vercel.app</span>
+                </div>
+              </div>
             </div>
-            <h4 class="text-xl font-bold mb-2">Submit Documents</h4>
-            <p class="text-slate-600 text-sm md:text-base">
-              Provide your Aadhar card, photo, and previous marksheets.
-            </p>
-          </div>
-          <div class="hidden md:block text-slate-300 text-4xl">
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
+          </a>
+        </div>
 
-          <div class="flex-1 px-4">
-            <div
-              class="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-lg"
+        <!-- Blog Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8" id="blogCardsGrid">
+          <!-- CARD 1: Failed Class 10 -->
+          <article
+            class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+            data-category="nios"
+          >
+            <a
+              href="https://edyoucate-blog.vercel.app/nios-class-10-after-failure.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col h-full"
             >
-              2
-            </div>
-            <h4 class="text-xl font-bold mb-2">Expert Counseling</h4>
-            <p class="text-slate-600 text-sm md:text-base">
-              We help you select the easiest subjects to ensure you pass.
-            </p>
-          </div>
-          <div class="hidden md:block text-slate-300 text-4xl">
-            <i class="fa-solid fa-arrow-right"></i>
-          </div>
+              <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                <img
+                  src="https://edyoucate-blog.vercel.app/NIOS%20Photos/nios%20failed%20class%2010.png"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';"
+                  alt="Failed Class 10? How to Continue Your Education Through NIOS"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-md">
+                    NIOS
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                  <span class="text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                    11 min read
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-xs text-slate-400 mb-2 font-medium">
+                    OCT 18, 2026 &nbsp;•&nbsp; edYOUcate Editorial
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    Failed Class 10? How to Continue Your Education Through NIOS.
+                  </h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    One result does not define your future. Explore NIOS Secondary eligibility, subject choices, documents and a realistic study plan.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                  <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400">Class 10</span>
+                </div>
+              </div>
+            </a>
+          </article>
 
-          <div class="flex-1 px-4">
-            <div
-              class="w-20 h-20 bg-brand-blue text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 shadow-lg"
+          <!-- CARD 2: Class 12 Admission -->
+          <article
+            class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+            data-category="nios"
+          >
+            <a
+              href="https://edyoucate-blog.vercel.app/nios-class-12-admission-guide.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col h-full"
             >
-              3
-            </div>
-            <h4 class="text-xl font-bold mb-2">Confirmation</h4>
-            <p class="text-slate-600 text-sm md:text-base">
-              Your admission is locked, ID is generated, and prep begins.
+              <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                <img
+                  src="https://edyoucate-blog.vercel.app/NIOS%20Photos/nios%20class%2012%20admission.png"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';"
+                  alt="NIOS Class 12 Admission: Eligibility, Subjects and Documents"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-md">
+                    NIOS
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                  <span class="text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                    11 min read
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-xs text-slate-400 mb-2 font-medium">
+                    OCT 17, 2026 &nbsp;•&nbsp; edYOUcate Editorial
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    NIOS Class 12 Admission: Eligibility, Subjects and Documents.
+                  </h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Understand NIOS Class 12 admission, eligibility, subject choices, documents and important certification rules before applying.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                  <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400">Class 12</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- CARD 3: Open School Admission -->
+          <article
+            class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+            data-category="nios"
+          >
+            <a
+              href="https://edyoucate-blog.vercel.app/nios-open-school-admission.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col h-full"
+            >
+              <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                <img
+                  src="https://edyoucate-blog.vercel.app/NIOS%20Photos/nios%20open%20school%20admission.png"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';"
+                  alt="NIOS Open School Admission: What Students Should Know"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-md">
+                    NIOS
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                  <span class="text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                    11 min read
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-xs text-slate-400 mb-2 font-medium">
+                    OCT 16, 2026 &nbsp;•&nbsp; edYOUcate Editorial
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    NIOS Open School Admission: What Students Should Know.
+                  </h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Learn how NIOS open schooling works, who may apply, what flexibility means and which questions to ask before admission.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                  <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400">Open Schooling</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- CARD 4: Distance Education in Surat -->
+          <article
+            class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+            data-category="distance"
+          >
+            <a
+              href="https://edyoucate-blog.vercel.app/distance-education-in-surat.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col h-full"
+            >
+              <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                <img
+                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                  alt="Distance Education in Surat: A Student's Guide"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white shadow-md">
+                    Distance Learning
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                  <span class="text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                    13 min read
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-xs text-slate-400 mb-2 font-medium">
+                    OCT 18, 2026 &nbsp;•&nbsp; edYOUcate Editorial
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    Distance Education in Surat: A Student's Complete Guide.
+                  </h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Explore distance education in Surat: course choices, eligibility, ODL vs online learning, UGC-DEB recognition checks, fees and admission steps.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                  <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400">Degree Guide</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- CARD 5: Online Degree Courses in Surat -->
+          <article
+            class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+            data-category="distance"
+          >
+            <a
+              href="https://edyoucate-blog.vercel.app/online-degree-courses-in-surat.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col h-full"
+            >
+              <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                <img
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                  alt="Online Degree Courses in Surat: How to Choose"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white shadow-md">
+                    Distance Learning
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                  <span class="text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                    12 min read
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-xs text-slate-400 mb-2 font-medium">
+                    OCT 18, 2026 &nbsp;•&nbsp; edYOUcate Editorial
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    Online Degree Courses in Surat: How to Choose Wisely.
+                  </h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Compare online degree courses in Surat by eligibility, recognition, subjects, fees, learning platform and examinations before applying.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                  <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400">Online Degrees</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- CARD 6: Online MBA Admission -->
+          <article
+            class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+            data-category="distance"
+          >
+            <a
+              href="https://edyoucate-blog.vercel.app/online-mba-admission-guide.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col h-full"
+            >
+              <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                <img
+                  src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                  alt="Online MBA classroom"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white shadow-md">
+                    Distance Learning
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                  <span class="text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                    12 min read
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-xs text-slate-400 mb-2 font-medium">
+                    OCT 17, 2026 &nbsp;•&nbsp; edYOUcate Editorial
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    Online MBA Admission: Eligibility, Fees and Universities.
+                  </h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Compare online MBA admission eligibility, AICTE/UGC approvals, specialisations, fees and university selection checklist.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                  <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400">Postgraduate</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- CARD 7: UGC Recognition Guide -->
+          <article
+            class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+            data-category="distance"
+          >
+            <a
+              href="https://edyoucate-blog.vercel.app/how-to-check-ugc-recognition.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex flex-col h-full"
+            >
+              <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                <img
+                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                  alt="UGC recognition verification"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-600 text-white shadow-md">
+                    Distance Learning
+                  </span>
+                </div>
+                <div class="absolute bottom-3 right-3">
+                  <span class="text-xs font-semibold text-slate-800 bg-white/90 backdrop-blur-sm px-2.5 py-1 rounded-full shadow-sm">
+                    12 min read
+                  </span>
+                </div>
+              </div>
+              <div class="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <div class="text-xs text-slate-400 mb-2 font-medium">
+                    OCT 16, 2026 &nbsp;•&nbsp; edYOUcate Editorial
+                  </div>
+                  <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                    How to Check UGC Recognition for Online Degrees.
+                  </h3>
+                  <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Learn how to verify UGC-DEB recognition for an online degree: check university, exact programme, learning mode and academic session.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                  <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                    <span>Read on Blog</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                  </span>
+                  <span class="text-xs text-slate-400">Verification</span>
+                </div>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <!-- Call to Action Banner inside Blog Section -->
+        <div class="mt-14 p-8 md:p-10 rounded-3xl bg-gradient-to-r from-brand-blue to-slate-900 text-white shadow-xl relative overflow-hidden flex flex-col lg:flex-row items-center justify-between gap-6 reveal">
+          <div class="relative z-10 max-w-2xl text-center lg:text-left">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-gold text-slate-900 mb-3">
+              <i class="fa-solid fa-book-open"></i> Read More on Our Official Blog
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-bold font-heading leading-tight mb-2">
+              Looking for More Articles & Deep Dives?
+            </h3>
+            <p class="text-slate-300 text-sm sm:text-base">
+              Visit our dedicated blog platform for detailed subject breakdowns, admission roadmaps, and student success stories.
             </p>
           </div>
+          <div class="relative z-10 flex flex-wrap items-center justify-center gap-3 shrink-0">
+            <a
+              href="https://edyoucate-blog.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-redHover text-white px-6 py-3.5 rounded-full font-heading font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+            >
+              <span>Explore All on blog.edyoucate</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+            <a
+              href="https://wa.me/918866230077?text=Hello%20edYOUcate,%20I%20saw%20your%20blog%20and%20want%20to%20know%20more%20about%20NIOS%20admission."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3.5 rounded-full font-heading font-bold text-sm sm:text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+            >
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+              Chat on WhatsApp
+            </a>
+          </div>
+          <!-- Background decorative circle -->
+          <div class="absolute -right-16 -top-16 w-64 h-64 bg-white/5 rounded-full pointer-events-none"></div>
         </div>
       </div>
     </section>
+
+    <!-- LIVE BLOG AUTO-FETCH & FILTER ENGINE -->
+    <script>
+      const BLOG_ORIGIN = "https://edyoucate-blog.vercel.app";
+
+      // 1. Live Fetch from edYOUcate Blog Website
+      async function autoFetchLatestBlogs() {
+        const statusEl = document.getElementById("blogSyncStatus");
+        try {
+          // Fetch live homepage of edyoucate-blog with CORS enabled
+          const res = await fetch(BLOG_ORIGIN + "/", {
+            method: "GET",
+            headers: { "Accept": "text/html" },
+            cache: "no-cache"
+          });
+
+          if (!res.ok) throw new Error("HTTP " + res.status);
+
+          const htmlText = await res.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, "text/html");
+
+          // Extract articles from .latest-stories and .more-stories
+          const articleElements = doc.querySelectorAll(".latest-stories article, .more-stories article");
+          if (!articleElements || articleElements.length === 0) {
+            return;
+          }
+
+          const parsedStories = [];
+          const seenUrls = new Set();
+
+          articleElements.forEach((art) => {
+            const linkEl = art.querySelector("h3 a, h4 a, .card-content a, a");
+            if (!linkEl) return;
+
+            const rawHref = linkEl.getAttribute("href") || "";
+            if (!rawHref || rawHref.startsWith("#") || rawHref.startsWith("javascript:")) return;
+
+            const fullUrl = new URL(rawHref, BLOG_ORIGIN + "/").href;
+            if (seenUrls.has(fullUrl)) return;
+            seenUrls.add(fullUrl);
+
+            // Extract Title
+            const title = (linkEl.textContent || art.querySelector("h3, h4")?.textContent || "")
+              .trim()
+              .replace(/\s+/g, " ");
+
+            // Extract Excerpt
+            const excerpt = (art.querySelector(".card-content p, .small-card-content p, p")?.textContent || "")
+              .trim()
+              .replace(/\s+/g, " ");
+
+            // Extract Image
+            const imgEl = art.querySelector(".card-image img, .small-card-image img, img");
+            let imgSrc = imgEl?.getAttribute("src") || "";
+            if (imgSrc) {
+              imgSrc = new URL(imgSrc, BLOG_ORIGIN + "/").href;
+            } else {
+              imgSrc = "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80";
+            }
+
+            // Extract Meta (Date & Read time)
+            const meta = (art.querySelector(".card-meta")?.textContent || "OCT 2026 • 11 MIN READ")
+              .trim()
+              .replace(/&nbsp;/g, " ")
+              .replace(/\s+/g, " ");
+
+            // Extract Category / Badge
+            const badge = (art.querySelector(".card-badge, .small-card-eyebrow")?.textContent || "NIOS")
+              .trim()
+              .toUpperCase();
+
+            const isNios = badge.includes("NIOS") || title.toUpperCase().includes("NIOS");
+            const category = isNios ? "nios" : "distance";
+            const categoryLabel = isNios ? "NIOS" : "Distance Learning";
+            const badgeBg = isNios ? "bg-brand-red text-white" : "bg-blue-600 text-white";
+
+            parsedStories.push({
+              title,
+              url: fullUrl,
+              imgSrc,
+              meta,
+              badge,
+              category,
+              categoryLabel,
+              badgeBg,
+              excerpt
+            });
+          });
+
+          if (parsedStories.length > 0) {
+            renderFetchedBlogs(parsedStories);
+            if (statusEl) {
+              statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Auto-synced (${parsedStories.length} articles live from blog.edyoucate)`;
+            }
+          }
+        } catch (err) {
+          console.info("edYOUcate blog auto-fetch note:", err.message);
+          if (statusEl) {
+            statusEl.innerHTML = `<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Auto-synced with blog.edyoucate`;
+          }
+        }
+      }
+
+      function renderFetchedBlogs(stories) {
+        // Grid cards
+        const gridStories = stories;
+
+        // Update counts on filter buttons
+        const niosCount = stories.filter(s => s.category === "nios").length;
+        const distCount = stories.filter(s => s.category === "distance").length;
+
+        const allBtn = document.querySelector(".blog-filter-btn[data-category='all']");
+        const niosBtn = document.querySelector(".blog-filter-btn[data-category='nios']");
+        const distBtn = document.querySelector(".blog-filter-btn[data-category='distance']");
+
+        if (allBtn) allBtn.innerText = `All Stories (${stories.length})`;
+        if (niosBtn) niosBtn.innerText = `NIOS Open Schooling (${niosCount})`;
+        if (distBtn) distBtn.innerText = `Distance Learning (${distCount})`;
+
+        // Update Grid Container
+        const gridContainer = document.getElementById("blogCardsGrid");
+        if (gridContainer && gridStories.length > 0) {
+          gridContainer.innerHTML = gridStories.map((story) => `
+            <article
+              class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
+              data-category="${story.category}"
+            >
+              <a
+                href="${story.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex flex-col h-full"
+              >
+                <div class="h-48 sm:h-52 relative overflow-hidden bg-slate-100 border-b border-slate-100">
+                  <img
+                    src="${story.imgSrc}"
+                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';"
+                    alt="${story.title.replace(/"/g, '&quot;')}"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div class="absolute top-3 left-3">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${story.badgeBg} shadow-md">
+                      ${story.categoryLabel}
+                    </span>
+                  </div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div class="text-xs text-slate-400 mb-2 font-medium">
+                      ${story.meta}
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                      ${story.title}
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                      ${story.excerpt}
+                    </p>
+                  </div>
+                  <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-brand-red font-semibold text-sm">
+                    <span class="inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                      <span>Read on Blog</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </span>
+                    <span class="text-xs text-slate-400 font-medium">blog.edyoucate</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+          `).join("");
+        }
+      }
+
+      // 2. Filter tabs logic
+      function filterBlogPosts(category, buttonEl) {
+        const buttons = document.querySelectorAll(".blog-filter-btn");
+        buttons.forEach((btn) => {
+          btn.classList.remove("bg-brand-blue", "text-white", "shadow-md", "active-filter");
+          btn.classList.add("bg-white", "text-slate-700", "border", "border-slate-200");
+        });
+
+        buttonEl.classList.remove("bg-white", "text-slate-700", "border", "border-slate-200");
+        buttonEl.classList.add("bg-brand-blue", "text-white", "shadow-md", "active-filter");
+
+        const cards = document.querySelectorAll(".blog-card, .featured-blog-banner");
+        cards.forEach((card) => {
+          const cardCat = card.getAttribute("data-category");
+          if (category === "all" || cardCat === category) {
+            card.classList.remove("hidden");
+            card.style.opacity = "0";
+            card.style.transform = "translateY(10px)";
+            setTimeout(() => {
+              card.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+              card.style.opacity = "1";
+              card.style.transform = "translateY(0)";
+            }, 30);
+          } else {
+            card.classList.add("hidden");
+          }
+        });
+      }
+
+      // Auto-fetch on DOM ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", autoFetchLatestBlogs);
+      } else {
+        autoFetchLatestBlogs();
+      }
+    </script>
     <!--
     <section
       id="reviews"
@@ -3253,6 +3948,17 @@ edYOUcate"
                     class="fa-solid fa-angle-right text-brand-red text-[10px] mr-2"
                   ></i>
                   Streams & Subjects
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#blogs"
+                  class="hover:text-white hover:translate-x-1 transition-all inline-block"
+                >
+                  <i
+                    class="fa-solid fa-angle-right text-brand-red text-[10px] mr-2"
+                  ></i>
+                  Blogs & Guides
                 </a>
               </li>
               <li>
