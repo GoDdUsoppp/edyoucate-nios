@@ -1984,48 +1984,53 @@ edYOUcate"
           </div>
         </div>
 
-        <!-- Featured Story Banner (Leading to Main Guide) -->
-        <div class="mb-10 reveal featured-blog-banner" data-category="nios">
+        <!-- Latest Story Banner (Most Recent NIOS Blog) -->
+        <div class="mb-6 lg:mb-10 reveal featured-blog-banner" data-category="nios">
           <a
+            id="latestBlogLink"
             href="https://blog.edyoucate.in/nios-admission-surat-guide.html"
             target="_blank"
             rel="noopener noreferrer"
-            class="block bg-white rounded-3xl border border-slate-200/90 shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1 group"
+            class="block bg-white rounded-2xl lg:rounded-3xl border border-slate-200/90 shadow-sm lg:shadow-md hover:shadow-xl lg:hover:shadow-2xl transition-all duration-300 overflow-hidden hover:-translate-y-1.5 lg:hover:-translate-y-1 group"
           >
             <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-              <div class="lg:col-span-7 relative h-64 sm:h-80 lg:h-auto overflow-hidden bg-slate-900">
+              <div class="lg:col-span-7 relative h-48 sm:h-52 lg:h-auto overflow-hidden bg-slate-900 border-b lg:border-b-0 border-slate-100">
                 <img
+                  id="latestBlogImg"
                   src="https://blog.edyoucate.in/NIOS%20Photos/nios%20admission%20in%20surat.png"
                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';"
                   alt="Students discussing NIOS admission"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent lg:hidden"></div>
-                <div class="absolute top-4 left-4 z-10">
-                  <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-lg">
-                    <i class="fa-solid fa-star text-[10px]"></i>
-                    FEATURED / NIOS
+                <div class="absolute top-3 left-3 lg:top-4 lg:left-4 z-10">
+                  <span
+                    id="latestBlogBadge"
+                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-red text-white shadow-lg"
+                  >
+                    <i class="fa-solid fa-bolt text-[10px]"></i>
+                    LATEST STORY / NIOS
                   </span>
                 </div>
               </div>
-              <div class="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between">
+              <div class="lg:col-span-5 p-6 lg:p-8 xl:p-10 flex flex-col justify-between">
                 <div>
-                  <div class="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-3 uppercase tracking-wider">
+                  <div id="latestBlogMeta" class="flex items-center gap-2 text-xs text-slate-400 mb-2 lg:mb-3 font-medium uppercase tracking-wider">
                     <span>OCT 19, 2026</span>
                     <span>•</span>
                     <span>11 MIN READ</span>
                     <span>•</span>
                     <span>BY EDYOUCATE EDITORIAL</span>
                   </div>
-                  <h3 class="text-2xl sm:text-3xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
+                  <h3 id="latestBlogTitle" class="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold font-heading text-slate-900 group-hover:text-brand-red transition-colors duration-200 leading-snug mb-3">
                     NIOS Admission in Surat: A Simple Guide for Students & Parents.
                   </h3>
-                  <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+                  <p id="latestBlogExcerpt" class="text-slate-600 text-sm lg:text-base leading-relaxed mb-4 lg:mb-6">
                     A board exam result can feel like the end of a plan. For many students, it is simply the moment to find a different route through recognized open schooling.
                   </p>
                 </div>
                 <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <span class="inline-flex items-center gap-2 text-brand-red font-bold text-sm sm:text-base group-hover:gap-3 transition-all">
+                  <span class="inline-flex items-center gap-2 text-brand-red font-semibold text-sm lg:text-base group-hover:gap-3 transition-all">
                     <span>Read on Blog</span>
                     <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                   </span>
@@ -2201,6 +2206,17 @@ edYOUcate"
     <script>
       const BLOG_ORIGIN = "https://blog.edyoucate.in";
 
+      // Helper to parse date from metadata string (e.g., "OCT 19, 2026 • 11 MIN READ")
+      function parseBlogDate(metaText) {
+        if (!metaText) return 0;
+        const match = metaText.match(/([A-Za-z]{3,9}\s+\d{1,2},?\s*\d{4})/);
+        if (match) {
+          const timestamp = Date.parse(match[1]);
+          if (!isNaN(timestamp)) return timestamp;
+        }
+        return 0;
+      }
+
       // 1. Live Fetch from edYOUcate Blog Website (Only NIOS Stories)
       async function autoFetchLatestBlogs() {
         const statusEl = document.getElementById("blogSyncStatus");
@@ -2264,6 +2280,7 @@ edYOUcate"
             const meta = (art.querySelector(".card-meta")?.textContent || "OCT 2026 • 11 MIN READ")
               .trim()
               .replace(/&nbsp;/g, " ")
+              .replace(/&bull;/g, "•")
               .replace(/\s+/g, " ");
 
             parsedStories.push({
@@ -2275,8 +2292,17 @@ edYOUcate"
               category: "nios",
               categoryLabel: "NIOS",
               badgeBg: "bg-brand-red text-white",
-              excerpt
+              excerpt,
+              timestamp: parseBlogDate(meta)
             });
+          });
+
+          // Sort by date descending so the most recent blog is always at index 0
+          parsedStories.sort((a, b) => {
+            if (b.timestamp !== a.timestamp) {
+              return b.timestamp - a.timestamp;
+            }
+            return 0; // preserve document order for ties
           });
 
           if (parsedStories.length > 0) {
@@ -2294,9 +2320,41 @@ edYOUcate"
       }
 
       function renderFetchedBlogs(stories) {
+        if (!stories || stories.length === 0) return;
+
+        // 1. Most recent blog in the big card
+        const mostRecent = stories[0];
+        const latestLink = document.getElementById("latestBlogLink");
+        const latestImg = document.getElementById("latestBlogImg");
+        const latestBadge = document.getElementById("latestBlogBadge");
+        const latestMeta = document.getElementById("latestBlogMeta");
+        const latestTitle = document.getElementById("latestBlogTitle");
+        const latestExcerpt = document.getElementById("latestBlogExcerpt");
+
+        if (latestLink) latestLink.href = mostRecent.url;
+        if (latestImg) {
+          latestImg.src = mostRecent.imgSrc;
+          latestImg.alt = mostRecent.title;
+        }
+        if (latestBadge) {
+          latestBadge.innerHTML = '<i class="fa-solid fa-bolt text-[10px]"></i> LATEST STORY / NIOS';
+        }
+        if (latestTitle) latestTitle.textContent = mostRecent.title;
+        if (latestExcerpt && mostRecent.excerpt) latestExcerpt.textContent = mostRecent.excerpt;
+        if (latestMeta) {
+          const parts = mostRecent.meta.split(/[•·]/).map((s) => s.trim()).filter(Boolean);
+          if (parts.length > 0) {
+            latestMeta.innerHTML = parts.map((part) => `<span>${part}</span>`).join("<span>•</span>") +
+              "<span>•</span><span>BY EDYOUCATE EDITORIAL</span>";
+          }
+        }
+
+        // 2. The rest three recent blogs in the small cards below, in order (excluding the most recent one)
         const gridContainer = document.getElementById("blogCardsGrid");
-        if (gridContainer && stories.length > 0) {
-          gridContainer.innerHTML = stories.map((story) => `
+        if (gridContainer) {
+          const smallStories = stories.slice(1, 4); // The next 3 recent blogs
+          if (smallStories.length > 0) {
+            gridContainer.innerHTML = smallStories.map((story) => `
             <article
               class="blog-card bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden hover:-translate-y-1.5 group"
               data-category="${story.category}"
@@ -2344,6 +2402,7 @@ edYOUcate"
               </a>
             </article>
           `).join("");
+          }
         }
       }
 
