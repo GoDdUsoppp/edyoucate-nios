@@ -1546,23 +1546,25 @@ edYOUcate" />
       });
       const navbar = document.getElementById("navbar");
       const headerContainer = document.getElementById("site-header") || navbar;
+      if (navbar && navbar !== headerContainer) {
+        navbar.classList.remove("-translate-y-full");
+      }
       let lastScrollY = window.scrollY;
       let ticking = false;
 
       function updateNavbar() {
         const currentScrollY = window.scrollY;
-        const isMobile = window.innerWidth < 768;
+        const mobileMenu = document.getElementById("mobileMenu");
 
-        if (isMobile) {
-          if (currentScrollY > 80 && currentScrollY > lastScrollY) {
-            navbar.classList.add("-translate-y-full");
-            headerContainer.classList.add("-translate-y-full");
-          } else {
-            navbar.classList.remove("-translate-y-full");
-            headerContainer.classList.remove("-translate-y-full");
-          }
+        // If scrolling down while mobile menu is open, close it
+        if (mobileMenu && !mobileMenu.classList.contains("hidden") && currentScrollY > lastScrollY) {
+          mobileMenu.classList.add("hidden");
+        }
+
+        // Hide when scrolling down past 80px; show when scrolling up or at the top
+        if (currentScrollY > 80 && currentScrollY > lastScrollY) {
+          headerContainer.classList.add("-translate-y-full");
         } else {
-          navbar.classList.remove("-translate-y-full");
           headerContainer.classList.remove("-translate-y-full");
         }
 
@@ -1582,8 +1584,7 @@ edYOUcate" />
       );
 
       window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768) {
-          navbar.classList.remove("-translate-y-full");
+        if (window.scrollY <= 80) {
           headerContainer.classList.remove("-translate-y-full");
         }
       });
