@@ -32,76 +32,13 @@ content:
         label: Display Button
         type: boolean
         description: Turn on to display a call-to-action button in the announcement bar.
-        default: true
+        default: false
       - name: button_text
         label: Button Text
         type: string
         description: Label for the announcement button (e.g., 'View Notice' or 'Apply Now').
-        default: "View Notice"
+        default: "Apply Now"
       - name: button_url
         label: Button URL
         type: string
         description: Link destination for the button (e.g., #admission-form or https://...).
-
-  - name: popup_notification
-    label: Popup Notification
-    type: file
-    path: content/popup-notification.json
-    description: Manage the popup notification modal displayed to website visitors.
-    fields:
-      - name: display
-        label: Display Popup
-        type: boolean
-        description: Turn on to show the popup notification to visitors, or off to hide it completely.
-        default: true
-      - name: title
-        label: Notification Title
-        type: string
-        required: true
-        description: Main headline for the popup notification.
-      - name: short_description
-        label: Short Description
-        type: text
-        description: Brief summary or details explaining the notice.
-      - name: category
-        label: Category
-        type: select
-        description: Notification category tag.
-        options:
-          values:
-            - Admission
-            - Exam
-            - TMA
-            - Practical
-            - PCP
-            - Result
-        default: Admission
-      - name: published_date
-        label: Published Date
-        type: date
-        description: Official publication date of this notice.
-      - name: display_official_notice_button
-        label: Display Official Notice Button
-        type: boolean
-        description: Turn on to show a button linking to the official NIOS notice or document.
-        default: true
-      - name: official_notice_button_text
-        label: Official Notice Button Text
-        type: string
-        description: Label for the official notice button.
-        default: "View Official Notice"
-      - name: official_notice_url
-        label: Official Notice URL
-        type: string
-        description: Web link to the official NIOS notice or PDF (https://...).
-      - name: enable_countdown
-        label: Enable Countdown
-        type: boolean
-        description: Turn on to show a live countdown timer until the deadline.
-        default: true
-      - name: countdown_deadline
-        label: Countdown Deadline
-        type: date
-        options:
-          time: true
-        description: Target deadline date and time for the countdown.

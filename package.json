@@ -1,0 +1,13 @@
+{
+  "name": "edyoucate-nios",
+  "version": "1.0.0",
+  "description": "edYOUcate NIOS website with automated official notification scraping",
+  "main": "index.html",
+  "scripts": {
+    "scrape": "node scripts/scrape-nios.js",
+    "test:scrape": "node scripts/scrape-nios.js --test"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0"
+  }
+}
